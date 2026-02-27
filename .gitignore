@@ -1,0 +1,4 @@
+# Large binary files — not needed for deployment
+*.pdf
+*.zip
+stitch/
