@@ -1,0 +1,8 @@
+[build]
+  publish = "ethics-navigator/netlify"
+  command = "echo 'Static site — no build needed'"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
