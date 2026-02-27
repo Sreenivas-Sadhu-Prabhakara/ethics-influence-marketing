@@ -28,6 +28,9 @@
 </head>
 <body class="bg-background-dark font-display text-slate-100 antialiased overflow-x-hidden">
 
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress" class="reading-progress" style="width:0%"></div>
+
   <!-- ======= NAVIGATION BAR ======= -->
   <nav class="fixed top-0 inset-x-0 z-50 glass border-b border-slate-800/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,13 +68,60 @@
 
   <!-- ======= HERO SECTION ======= -->
   <header class="relative min-h-[90vh] flex items-center justify-center pt-16 overflow-hidden">
+    <!-- Particle canvas -->
+    <canvas id="particles-canvas"></canvas>
     <!-- Background glow -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-[120px] pointer-events-none"></div>
     <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-secondary/5 blur-[100px] pointer-events-none"></div>
 
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <!-- SVG Hero Illustration — Scales of Justice with Data -->
+      <div class="mx-auto mb-10 w-64 h-64 sm:w-80 sm:h-80 animate-float">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-2xl">
+          <!-- Base/Pedestal -->
+          <rect x="170" y="340" width="60" height="20" rx="4" fill="#334155"/>
+          <rect x="185" y="200" width="30" height="145" rx="4" fill="url(#pillarGrad)"/>
+          <!-- Beam -->
+          <line x1="60" y1="190" x2="340" y2="190" stroke="url(#beamGrad)" stroke-width="6" stroke-linecap="round"/>
+          <!-- Fulcrum -->
+          <polygon points="200,170 215,195 185,195" fill="#f97316"/>
+          <!-- Left Pan — "Truth" -->
+          <path d="M40,195 Q50,190 60,195 L80,250 Q60,260 40,250 Z" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="2"/>
+          <circle cx="60" cy="215" r="18" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="1.5"/>
+          <text x="60" y="220" text-anchor="middle" fill="#22c55e" font-size="14" font-weight="bold">✓</text>
+          <text x="60" y="275" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="600">TRUTH</text>
+          <!-- Right Pan — "Client Appeasement" -->
+          <path d="M320,195 Q330,190 340,195 L360,250 Q340,260 320,250 Z" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="2"/>
+          <circle cx="340" cy="215" r="18" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1.5"/>
+          <text x="340" y="220" text-anchor="middle" fill="#ef4444" font-size="14" font-weight="bold">$</text>
+          <text x="340" y="275" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="600">BIAS</text>
+          <!-- Data dots floating -->
+          <circle cx="100" cy="140" r="4" fill="#f97316" opacity="0.6"><animate attributeName="cy" values="140;130;140" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="150" cy="120" r="3" fill="#136dec" opacity="0.5"><animate attributeName="cy" values="120;110;120" dur="4s" repeatCount="indefinite"/></circle>
+          <circle cx="250" cy="130" r="5" fill="#facc15" opacity="0.4"><animate attributeName="cy" values="130;118;130" dur="3.5s" repeatCount="indefinite"/></circle>
+          <circle cx="300" cy="150" r="3" fill="#ef4444" opacity="0.6"><animate attributeName="cy" values="150;140;150" dur="2.8s" repeatCount="indefinite"/></circle>
+          <!-- Chart bars on left (truth) -->
+          <rect x="42" y="150" width="8" height="25" rx="2" fill="#22c55e" opacity="0.4"><animate attributeName="height" values="25;30;25" dur="2s" repeatCount="indefinite"/></rect>
+          <rect x="54" y="145" width="8" height="30" rx="2" fill="#22c55e" opacity="0.3"><animate attributeName="height" values="30;35;30" dur="2.5s" repeatCount="indefinite"/></rect>
+          <rect x="66" y="155" width="8" height="20" rx="2" fill="#22c55e" opacity="0.5"><animate attributeName="height" values="20;26;20" dur="1.8s" repeatCount="indefinite"/></rect>
+          <!-- Chart bars on right (biased) -->
+          <rect x="322" y="140" width="8" height="38" rx="2" fill="#ef4444" opacity="0.4"><animate attributeName="height" values="38;42;38" dur="2s" repeatCount="indefinite"/></rect>
+          <rect x="334" y="138" width="8" height="40" rx="2" fill="#ef4444" opacity="0.3"><animate attributeName="height" values="40;44;40" dur="2.5s" repeatCount="indefinite"/></rect>
+          <rect x="346" y="139" width="8" height="39" rx="2" fill="#ef4444" opacity="0.5"><animate attributeName="height" values="39;43;39" dur="1.8s" repeatCount="indefinite"/></rect>
+          <!-- Eye/Lens in center -->
+          <ellipse cx="200" cy="140" rx="28" ry="16" fill="none" stroke="#f97316" stroke-width="2" opacity="0.4"/>
+          <circle cx="200" cy="140" r="8" fill="rgba(249,115,22,0.2)" stroke="#f97316" stroke-width="1.5"/>
+          <circle cx="200" cy="140" r="3" fill="#f97316"/>
+          <!-- Gradients -->
+          <defs>
+            <linearGradient id="pillarGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+            <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#22c55e"/><stop offset="50%" stop-color="#f97316"/><stop offset="100%" stop-color="#ef4444"/></linearGradient>
+          </defs>
+        </svg>
+      </div>
+
       <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-8">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-8 animate-shimmer">
         <span class="material-symbols-outlined text-sm">school</span>
         Marketing Research Case Study
       </div>
@@ -96,6 +146,148 @@
       </div>
     </div>
   </header>
+
+  <!-- ======= SCENARIO OVERVIEW ======= -->
+  <section class="max-w-6xl mx-auto px-6 mb-16 fade-in-section">
+    <div class="gradient-divider mb-12"></div>
+    <div class="grid lg:grid-cols-2 gap-8 items-center">
+      <!-- Left: text -->
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-semibold mb-4">
+          <span class="material-symbols-outlined text-sm">info</span> The Scenario
+        </div>
+        <h2 class="text-3xl font-bold text-white mb-4">What Happened at<br/><span class="text-gradient">Trend Bridge?</span></h2>
+        <p class="text-slate-400 leading-relaxed mb-4">
+          Eleanor Carrington, a newly hired research associate at Trend Bridge Market Research Inc., designed a customer satisfaction survey for a grocery store client using balanced, objective methodology.
+        </p>
+        <p class="text-slate-400 leading-relaxed mb-4">
+          Without her knowledge, her carefully crafted questions were <strong class="text-red-400">secretly rewritten</strong> to guarantee positive responses. Every open-ended question was removed. The final survey was a tool of <strong class="text-white">client appeasement</strong>, not genuine research.
+        </p>
+        <p class="text-slate-400 leading-relaxed mb-6">
+          When she discovered the manipulation during a client presentation, her supervisor's response was clear: <em class="text-primary">"Pleasing the client takes precedence over strict objectivity."</em>
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="h-1 w-12 rounded-full bg-primary"></div>
+          <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Based on a real ethical framework analysis</p>
+        </div>
+      </div>
+      <!-- Right: SVG scene illustration -->
+      <div class="relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl blur-2xl"></div>
+        <div class="relative bg-surface-dark rounded-3xl border border-slate-800 p-8 overflow-hidden">
+          <svg viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+            <!-- Office desk scene -->
+            <!-- Desk -->
+            <rect x="60" y="220" width="380" height="10" rx="5" fill="#334155"/>
+            <rect x="80" y="230" width="12" height="80" rx="3" fill="#1e293b"/>
+            <rect x="408" y="230" width="12" height="80" rx="3" fill="#1e293b"/>
+            <!-- Monitor -->
+            <rect x="150" y="110" width="200" height="115" rx="8" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+            <rect x="160" y="120" width="180" height="95" rx="4" fill="#1e293b"/>
+            <rect x="230" y="225" width="40" height="5" rx="2" fill="#475569"/>
+            <rect x="215" y="228" width="70" height="4" rx="2" fill="#334155"/>
+            <!-- Survey on screen - original (green) bars -->
+            <rect x="175" y="135" width="60" height="6" rx="2" fill="#22c55e" opacity="0.7"/>
+            <rect x="175" y="147" width="45" height="6" rx="2" fill="#22c55e" opacity="0.5"/>
+            <rect x="175" y="159" width="55" height="6" rx="2" fill="#22c55e" opacity="0.6"/>
+            <rect x="175" y="171" width="38" height="6" rx="2" fill="#22c55e" opacity="0.4"/>
+            <!-- Red "altered" overlay bars -->
+            <rect x="260" y="135" width="65" height="6" rx="2" fill="#ef4444" opacity="0.7"/>
+            <rect x="260" y="147" width="60" height="6" rx="2" fill="#ef4444" opacity="0.5"/>
+            <rect x="260" y="159" width="62" height="6" rx="2" fill="#ef4444" opacity="0.6"/>
+            <rect x="260" y="171" width="58" height="6" rx="2" fill="#ef4444" opacity="0.4"/>
+            <!-- "vs" text -->
+            <text x="250" y="200" text-anchor="middle" fill="#64748b" font-size="9" font-weight="bold">ORIGINAL vs ALTERED</text>
+            <!-- Person silhouette (Eleanor) -->
+            <circle cx="100" cy="155" r="20" fill="rgba(249,115,22,0.15)" stroke="#f97316" stroke-width="2"/>
+            <circle cx="100" cy="148" r="8" fill="#f97316" opacity="0.3"/>
+            <path d="M86,170 Q100,180 114,170" stroke="#f97316" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <text x="100" y="200" text-anchor="middle" fill="#f97316" font-size="9" font-weight="600">ELEANOR</text>
+            <!-- Thought bubble -->
+            <ellipse cx="130" cy="120" rx="22" ry="12" fill="rgba(249,115,22,0.08)" stroke="#f97316" stroke-width="1" stroke-dasharray="4 2"/>
+            <text x="130" y="124" text-anchor="middle" fill="#f97316" font-size="8">?!</text>
+            <!-- Coffee mug -->
+            <rect x="390" y="200" width="20" height="22" rx="3" fill="none" stroke="#475569" stroke-width="1.5"/>
+            <path d="M410,207 Q420,207 420,213 Q420,219 410,219" stroke="#475569" stroke-width="1.5" fill="none"/>
+            <!-- Steam -->
+            <path d="M395,198 Q397,190 400,195" stroke="#475569" stroke-width="1" opacity="0.4" fill="none"><animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/></path>
+            <path d="M402,196 Q404,188 407,193" stroke="#475569" stroke-width="1" opacity="0.3" fill="none"><animate attributeName="opacity" values="0.3;0.1;0.3" dur="2.5s" repeatCount="indefinite"/></path>
+            <!-- Papers/documents -->
+            <rect x="330" y="190" width="35" height="28" rx="2" fill="#1e293b" stroke="#475569" stroke-width="1" transform="rotate(-5 347 204)"/>
+            <line x1="337" y1="198" x2="360" y2="197" stroke="#64748b" stroke-width="1"/>
+            <line x1="337" y1="204" x2="355" y2="203" stroke="#64748b" stroke-width="1"/>
+            <line x1="337" y1="210" x2="358" y2="209" stroke="#64748b" stroke-width="1"/>
+            <!-- Red stamp on paper -->
+            <circle cx="355" cy="205" r="8" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.6" transform="rotate(-5 355 205)"/>
+            <text x="355" y="208" text-anchor="middle" fill="#ef4444" font-size="6" font-weight="bold" opacity="0.6">BIAS</text>
+            <!-- Decorative grid dots -->
+            <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="rgba(148,163,184,0.1)"/>
+            </pattern>
+            <rect x="0" y="0" width="500" height="360" fill="url(#dots)"/>
+          </svg>
+          <!-- Labels beneath -->
+          <div class="flex items-center justify-between mt-4 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+              <span class="text-slate-400">Original Research</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-red-500"></span>
+              <span class="text-slate-400">Altered Deliverable</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= HOW TO USE THIS SITE ======= -->
+  <section class="max-w-6xl mx-auto px-6 mb-16 fade-in-section">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl font-bold text-white mb-2">How to Navigate This Case Study</h2>
+      <p class="text-slate-400 max-w-xl mx-auto text-sm">Follow the five modules in order for the full learning journey, or jump to any section that interests you.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-5 gap-4">
+      <div class="text-center">
+        <div class="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mx-auto mb-3 animate-bob">
+          <span class="text-lg font-black">1</span>
+        </div>
+        <p class="text-xs font-bold text-white">Dilemma</p>
+        <p class="text-[10px] text-slate-500 mt-0.5">Meet Eleanor</p>
+      </div>
+      <div class="text-center">
+        <div class="h-14 w-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mx-auto mb-3 animate-bob" style="animation-delay:.2s">
+          <span class="text-lg font-black">2</span>
+        </div>
+        <p class="text-xs font-bold text-white">Evidence</p>
+        <p class="text-[10px] text-slate-500 mt-0.5">See the manipulation</p>
+      </div>
+      <div class="text-center">
+        <div class="h-14 w-14 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-400 mx-auto mb-3 animate-bob" style="animation-delay:.4s">
+          <span class="text-lg font-black">3</span>
+        </div>
+        <p class="text-xs font-bold text-white">Silenced</p>
+        <p class="text-[10px] text-slate-500 mt-0.5">Buried feedback</p>
+      </div>
+      <div class="text-center">
+        <div class="h-14 w-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mx-auto mb-3 animate-bob" style="animation-delay:.6s">
+          <span class="text-lg font-black">4</span>
+        </div>
+        <p class="text-xs font-bold text-white">Stakeholders</p>
+        <p class="text-[10px] text-slate-500 mt-0.5">Ripple effects</p>
+      </div>
+      <div class="text-center">
+        <div class="h-14 w-14 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-400 mx-auto mb-3 animate-bob" style="animation-delay:.8s">
+          <span class="text-lg font-black">5</span>
+        </div>
+        <p class="text-xs font-bold text-white">Career</p>
+        <p class="text-[10px] text-slate-500 mt-0.5">Ethics vs. ambition</p>
+      </div>
+    </div>
+    <!-- Connecting line -->
+    <div class="hidden sm:block mt-2 mx-auto max-w-[85%] h-0.5 bg-gradient-to-r from-primary via-red-500 to-amber-500 rounded-full opacity-20"></div>
+  </section>
 
   <!-- ======= KEY STATS ======= -->
   <section class="max-w-6xl mx-auto px-6 -mt-8 mb-16 fade-in-section">
@@ -224,6 +416,125 @@
     </div>
   </section>
 
+  <!-- ======= KEY TAKEAWAYS ======= -->
+  <section class="max-w-6xl mx-auto px-6 pb-12 fade-in-section">
+    <div class="gradient-divider mb-10"></div>
+    <div class="text-center mb-8">
+      <h2 class="text-2xl font-bold text-white mb-2">Key Takeaways</h2>
+      <p class="text-slate-400 max-w-xl mx-auto text-sm">The central themes you'll explore throughout this case study.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-surface-dark rounded-2xl p-5 border border-slate-800 text-center fade-in-section stagger-1">
+        <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-3" fill="none">
+          <circle cx="40" cy="40" r="36" stroke="#f97316" stroke-width="2" stroke-dasharray="4 4" opacity="0.3"/>
+          <circle cx="40" cy="40" r="24" fill="rgba(249,115,22,0.08)"/>
+          <path d="M32,45 L38,50 L50,35" stroke="#f97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <h3 class="text-sm font-bold text-white mb-1">Research Integrity</h3>
+        <p class="text-xs text-slate-400">Honest methodology is the foundation of credible market research.</p>
+      </div>
+      <div class="bg-surface-dark rounded-2xl p-5 border border-slate-800 text-center fade-in-section stagger-2">
+        <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-3" fill="none">
+          <circle cx="40" cy="40" r="36" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 4" opacity="0.3"/>
+          <circle cx="40" cy="40" r="24" fill="rgba(239,68,68,0.08)"/>
+          <path d="M30,30 L50,50 M50,30 L30,50" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <h3 class="text-sm font-bold text-white mb-1">Manufactured Consent</h3>
+        <p class="text-xs text-slate-400">Biased questions produce the answers clients want — not the truth.</p>
+      </div>
+      <div class="bg-surface-dark rounded-2xl p-5 border border-slate-800 text-center fade-in-section stagger-3">
+        <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-3" fill="none">
+          <circle cx="40" cy="40" r="36" stroke="#136dec" stroke-width="2" stroke-dasharray="4 4" opacity="0.3"/>
+          <circle cx="40" cy="40" r="24" fill="rgba(19,109,236,0.08)"/>
+          <path d="M28,40 Q40,20 52,40 Q40,60 28,40Z" stroke="#136dec" stroke-width="2.5" fill="none"/>
+          <circle cx="40" cy="40" r="5" fill="#136dec" opacity="0.5"/>
+        </svg>
+        <h3 class="text-sm font-bold text-white mb-1">Ethical Vigilance</h3>
+        <p class="text-xs text-slate-400">Professionals must watch for systemic pressures that erode standards.</p>
+      </div>
+      <div class="bg-surface-dark rounded-2xl p-5 border border-slate-800 text-center fade-in-section stagger-4">
+        <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-3" fill="none">
+          <circle cx="40" cy="40" r="36" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4" opacity="0.3"/>
+          <circle cx="40" cy="40" r="24" fill="rgba(16,185,129,0.08)"/>
+          <path d="M30,50 L40,25 L50,50 Z" stroke="#10b981" stroke-width="2.5" fill="none"/>
+          <line x1="34" y1="44" x2="46" y2="44" stroke="#10b981" stroke-width="2"/>
+        </svg>
+        <h3 class="text-sm font-bold text-white mb-1">Stakeholder Impact</h3>
+        <p class="text-xs text-slate-400">Every ethical breach sends ripples across all parties involved.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= ETHICAL FRAMEWORK PREVIEW ======= -->
+  <section class="max-w-6xl mx-auto px-6 pb-24 fade-in-section">
+    <div class="bg-gradient-to-br from-primary/5 via-surface-dark to-secondary/5 rounded-3xl border border-slate-800 p-8 sm:p-12 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl font-bold text-white mb-4">Ethical Frameworks Applied</h2>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">This case study draws on established ethical guidelines from major professional organizations. Through each module, you'll see how specific actions violate (or uphold) these standards.</p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3 bg-surface-dark/60 rounded-xl p-3 border border-slate-800">
+              <div class="h-10 w-10 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-purple-400">shield</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white">AMA Code of Ethics</p>
+                <p class="text-xs text-slate-500">American Marketing Association — research integrity mandates</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 bg-surface-dark/60 rounded-xl p-3 border border-slate-800">
+              <div class="h-10 w-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-blue-400">policy</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white">AAPOR Standards</p>
+                <p class="text-xs text-slate-500">American Association for Public Opinion Research — survey methodology</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 bg-surface-dark/60 rounded-xl p-3 border border-slate-800">
+              <div class="h-10 w-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-amber-400">history_edu</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white">Historical Precedent</p>
+                <p class="text-xs text-slate-500">The "New Coke" disaster of 1985 — biased research in action</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SVG: interconnected ethical web -->
+        <div class="flex justify-center">
+          <svg viewBox="0 0 300 300" class="w-full max-w-[280px]" fill="none">
+            <!-- Outer ring -->
+            <circle cx="150" cy="150" r="130" stroke="#334155" stroke-width="1" stroke-dasharray="8 4"/>
+            <circle cx="150" cy="150" r="90" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+            <!-- Connecting lines -->
+            <line x1="150" y1="40" x2="50" y2="220" stroke="#f97316" stroke-width="1" opacity="0.2"/>
+            <line x1="150" y1="40" x2="250" y2="220" stroke="#f97316" stroke-width="1" opacity="0.2"/>
+            <line x1="50" y1="220" x2="250" y2="220" stroke="#f97316" stroke-width="1" opacity="0.2"/>
+            <!-- Nodes -->
+            <circle cx="150" cy="40" r="22" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="2"/>
+            <text x="150" y="38" text-anchor="middle" fill="#f97316" font-size="14">⚖</text>
+            <text x="150" y="52" text-anchor="middle" fill="#f97316" font-size="7" font-weight="bold">ETHICS</text>
+            <circle cx="50" cy="220" r="22" fill="rgba(139,92,246,0.1)" stroke="#8b5cf6" stroke-width="2"/>
+            <text x="50" y="218" text-anchor="middle" fill="#8b5cf6" font-size="14">📋</text>
+            <text x="50" y="232" text-anchor="middle" fill="#8b5cf6" font-size="7" font-weight="bold">AMA</text>
+            <circle cx="250" cy="220" r="22" fill="rgba(56,189,248,0.1)" stroke="#38bdf8" stroke-width="2"/>
+            <text x="250" y="218" text-anchor="middle" fill="#38bdf8" font-size="14">📊</text>
+            <text x="250" y="232" text-anchor="middle" fill="#38bdf8" font-size="7" font-weight="bold">AAPOR</text>
+            <!-- Center -->
+            <circle cx="150" cy="160" r="32" fill="rgba(249,115,22,0.05)" stroke="#f97316" stroke-width="1.5" stroke-dasharray="6 3">
+              <animate attributeName="r" values="32;35;32" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <text x="150" y="157" text-anchor="middle" fill="#94a3b8" font-size="8" font-weight="bold">CASE</text>
+            <text x="150" y="168" text-anchor="middle" fill="#94a3b8" font-size="8" font-weight="bold">STUDY</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ======= FOOTER ======= -->
   <footer class="border-t border-slate-800 py-8 px-6">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -239,6 +550,11 @@
     </div>
   </footer>
 
+  <!-- Back to Top Button -->
+  <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-primary text-white shadow-lg shadow-primary/25 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-primary-dark active:scale-90">
+    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+  </button>
+
   <script src="assets/js/shared.js"></script>
   <script>
     // Animate counters when stats section becomes visible
@@ -249,6 +565,9 @@
     }, { threshold: 0.3 });
     const statsSection = document.querySelector('[data-count]');
     if (statsSection) statsObserver.observe(statsSection.closest('section'));
+
+    // Init particles
+    initParticles('particles-canvas');
   </script>
 </body>
 </html>

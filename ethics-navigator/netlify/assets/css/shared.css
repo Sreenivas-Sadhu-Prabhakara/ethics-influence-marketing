@@ -21,6 +21,9 @@ body {
 .glass-light { background: rgba(255,255,255,.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 .text-gradient { background: linear-gradient(135deg, #f97316 0%, #facc15 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .text-gradient-blue { background: linear-gradient(135deg, #136dec 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.text-gradient-red { background: linear-gradient(135deg, #ef4444 0%, #f97316 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.text-gradient-emerald { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.text-gradient-purple { background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
 /* --- Card hover lift --- */
 .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
@@ -44,6 +47,13 @@ body {
 /* --- Fade-in on scroll (used with IntersectionObserver) --- */
 .fade-in-section { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
 .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+/* --- Stagger delays for children --- */
+.stagger-1 { transition-delay: .1s; }
+.stagger-2 { transition-delay: .2s; }
+.stagger-3 { transition-delay: .3s; }
+.stagger-4 { transition-delay: .4s; }
+.stagger-5 { transition-delay: .5s; }
 
 /* --- Timeline connector --- */
 .timeline-line { position: relative; }
@@ -71,6 +81,7 @@ body {
 .stat-bar-orange::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#f97316,#facc15); border-radius:999px 999px 0 0; }
 .stat-bar-red::before    { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#ef4444,#f97316); border-radius:999px 999px 0 0; }
 .stat-bar-blue::before   { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#136dec,#38bdf8); border-radius:999px 999px 0 0; }
+.stat-bar-emerald::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#10b981,#34d399); border-radius:999px 999px 0 0; }
 
 /* --- Nav active state --- */
 .nav-link { position: relative; color: #94a3b8; transition: color .2s; }
@@ -85,8 +96,134 @@ body {
 .stakeholder-node { transition: transform .2s, box-shadow .2s; }
 .stakeholder-node:hover { transform: scale(1.06); box-shadow: 0 8px 30px rgba(0,0,0,.3); }
 
+/* --- Floating animation for SVGs --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-float-slow { animation: float 6s ease-in-out infinite; }
+.animate-float-delayed { animation: float 4s ease-in-out 1s infinite; }
+
+/* --- Rotate slow (for decorative elements) --- */
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-rotate-slow { animation: rotateSlow 30s linear infinite; }
+
+/* --- Subtle bob for icons --- */
+@keyframes bob {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-4px) scale(1.02); }
+}
+.animate-bob { animation: bob 3s ease-in-out infinite; }
+
+/* --- Shimmer effect --- */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 30%, rgba(255,255,255,.06) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* --- Glow pulse for important elements --- */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(249,115,22,.1); }
+  50%      { box-shadow: 0 0 40px rgba(249,115,22,.25); }
+}
+.animate-glow { animation: glowPulse 3s ease-in-out infinite; }
+
+/* --- Draw-in for SVG paths --- */
+@keyframes drawIn {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+.animate-draw { stroke-dasharray: 1000; animation: drawIn 2s ease-out forwards; }
+
+/* --- Reading progress bar --- */
+.reading-progress {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f97316, #facc15);
+  z-index: 60;
+  transition: width .1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* --- Image cards --- */
+.img-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+.img-card:hover img {
+  transform: scale(1.05);
+}
+.img-card .img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15,23,42,.85) 0%, transparent 60%);
+}
+
+/* --- Divider with gradient --- */
+.gradient-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(249,115,22,.3), transparent);
+  border: none;
+  margin: 2rem 0;
+}
+
+/* --- Quote styling --- */
+.pull-quote {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 3px solid #f97316;
+  font-style: italic;
+}
+.pull-quote::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  left: -0.25rem;
+  font-size: 3rem;
+  color: rgba(249,115,22,.15);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+/* --- Tooltip --- */
+.tooltip-trigger { position: relative; cursor: help; border-bottom: 1px dashed rgba(148,163,184,.4); }
+.tooltip-trigger:hover .tooltip-content { opacity: 1; visibility: visible; transform: translateY(0); }
+.tooltip-content {
+  position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(4px);
+  background: #1e293b; border: 1px solid #334155; border-radius: .5rem; padding: .5rem .75rem;
+  font-size: .75rem; color: #e2e8f0; white-space: nowrap; z-index: 100;
+  opacity: 0; visibility: hidden; transition: all .2s ease; pointer-events: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+}
+
+/* --- Particle canvas (behind hero) --- */
+#particles-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* --- Print styles --- */
 @media print {
-  nav, .no-print { display: none !important; }
+  nav, .no-print, .reading-progress { display: none !important; }
   body { background: #fff !important; color: #000 !important; }
 }

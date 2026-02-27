@@ -25,6 +25,9 @@
 </head>
 <body class="bg-background-dark font-display text-slate-100 antialiased overflow-x-hidden">
 
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress" class="reading-progress" style="width:0%"></div>
+
   <!-- NAV -->
   <nav class="fixed top-0 inset-x-0 z-50 glass border-b border-slate-800/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,10 +71,81 @@
       </div>
       <h1 class="text-3xl sm:text-4xl font-black text-white mb-3">Impact & Stakeholder Mapping</h1>
       <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">Explore the ripple effects of the ethical breach across every party involved—from the researcher to the end consumer.</p>
+      <!-- Breadcrumb -->
+      <div class="flex items-center gap-2 mt-4 text-xs text-slate-500">
+        <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+        <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+        <span class="text-emerald-400">Module 4: Impact & Stakeholders</span>
+      </div>
     </div>
   </header>
 
   <main class="max-w-5xl mx-auto px-6 pb-24 space-y-12">
+
+    <!-- SVG STAKEHOLDER WEB DIAGRAM -->
+    <section class="fade-in-section">
+      <div class="bg-surface-dark rounded-3xl border border-slate-800 p-6 sm:p-8">
+        <h3 class="text-base font-bold text-white mb-6 flex items-center gap-2 text-center justify-center">
+          <span class="material-symbols-outlined text-emerald-400">hub</span>
+          Interactive Stakeholder Web
+        </h3>
+        <div class="flex justify-center">
+          <svg viewBox="0 0 500 400" class="w-full max-w-xl" fill="none">
+            <!-- Connection lines -->
+            <line x1="250" y1="80" x2="100" y2="200" stroke="#334155" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <line x1="250" y1="80" x2="400" y2="200" stroke="#334155" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <line x1="250" y1="80" x2="250" y2="320" stroke="#334155" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <line x1="100" y1="200" x2="250" y2="320" stroke="#334155" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+            <line x1="400" y1="200" x2="250" y2="320" stroke="#334155" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+            <line x1="100" y1="200" x2="400" y2="200" stroke="#334155" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+            <!-- Additional links to side nodes -->
+            <line x1="100" y1="200" x2="60" y2="330" stroke="#334155" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+            <line x1="400" y1="200" x2="440" y2="330" stroke="#334155" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+            
+            <!-- Ethical Breach (center top) -->
+            <circle cx="250" cy="80" r="35" fill="rgba(239,68,68,0.08)" stroke="#ef4444" stroke-width="2">
+              <animate attributeName="r" values="35;38;35" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <text x="250" y="75" text-anchor="middle" fill="#ef4444" font-size="16">⚠</text>
+            <text x="250" y="92" text-anchor="middle" fill="#ef4444" font-size="8" font-weight="bold">ETHICAL</text>
+            <text x="250" y="102" text-anchor="middle" fill="#ef4444" font-size="8" font-weight="bold">BREACH</text>
+            
+            <!-- Carrington (left) -->
+            <circle cx="100" cy="200" r="30" fill="rgba(249,115,22,0.08)" stroke="#f97316" stroke-width="2"/>
+            <text x="100" y="195" text-anchor="middle" fill="#f97316" font-size="14">👤</text>
+            <text x="100" y="210" text-anchor="middle" fill="#f97316" font-size="7" font-weight="bold">ELEANOR</text>
+            
+            <!-- Trend Bridge (right) -->
+            <circle cx="400" cy="200" r="30" fill="rgba(19,109,236,0.08)" stroke="#136dec" stroke-width="2"/>
+            <text x="400" y="195" text-anchor="middle" fill="#136dec" font-size="14">🏢</text>
+            <text x="400" y="210" text-anchor="middle" fill="#136dec" font-size="7" font-weight="bold">TREND BRIDGE</text>
+            
+            <!-- Client (center bottom) -->
+            <circle cx="250" cy="320" r="30" fill="rgba(251,191,36,0.08)" stroke="#fbbf24" stroke-width="2"/>
+            <text x="250" y="315" text-anchor="middle" fill="#fbbf24" font-size="14">🏪</text>
+            <text x="250" y="330" text-anchor="middle" fill="#fbbf24" font-size="7" font-weight="bold">CLIENT</text>
+            
+            <!-- Consumers (bottom left) -->
+            <circle cx="60" cy="330" r="24" fill="rgba(239,68,68,0.06)" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="60" y="327" text-anchor="middle" fill="#ef4444" font-size="12">🛒</text>
+            <text x="60" y="340" text-anchor="middle" fill="#ef4444" font-size="6" font-weight="bold">CONSUMERS</text>
+            
+            <!-- Profession (bottom right) -->
+            <circle cx="440" cy="330" r="24" fill="rgba(139,92,246,0.06)" stroke="#8b5cf6" stroke-width="1.5"/>
+            <text x="440" y="327" text-anchor="middle" fill="#8b5cf6" font-size="12">📋</text>
+            <text x="440" y="340" text-anchor="middle" fill="#8b5cf6" font-size="6" font-weight="bold">PROFESSION</text>
+            
+            <!-- Impact ripple rings -->
+            <circle cx="250" cy="200" r="80" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.3"/>
+            <circle cx="250" cy="200" r="140" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.2"/>
+            
+            <!-- "Ripple" label -->
+            <text x="250" y="200" text-anchor="middle" fill="#475569" font-size="7" font-weight="bold" opacity="0.5">RIPPLE EFFECTS</text>
+          </svg>
+        </div>
+        <p class="text-xs text-slate-500 text-center mt-4">Each node represents a stakeholder group. Dashed lines show how consequences propagate between parties.</p>
+      </div>
+    </section>
 
     <!-- ===== EXHIBIT 8: STAKEHOLDER MAP ===== -->
     <section class="fade-in-section">
@@ -391,6 +465,50 @@
       </div>
     </section>
 
+    <!-- TRUST EROSION TIMELINE -->
+    <section class="fade-in-section">
+      <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-red-400">trending_down</span>
+          <h2 class="text-xl font-bold text-white">Trust Erosion Over Time</h2>
+        </div>
+        <p class="text-sm text-slate-400 mb-6">When biased research goes unchecked, trust erodes progressively across all relationships.</p>
+        <svg viewBox="0 0 600 160" class="w-full" fill="none">
+          <!-- Axis -->
+          <line x1="50" y1="130" x2="570" y2="130" stroke="#334155" stroke-width="1"/>
+          <line x1="50" y1="20" x2="50" y2="130" stroke="#334155" stroke-width="1"/>
+          <!-- Y-axis label -->
+          <text x="20" y="75" text-anchor="middle" fill="#64748b" font-size="8" transform="rotate(-90,20,75)">Trust Level</text>
+          <!-- X-axis labels -->
+          <text x="120" y="148" text-anchor="middle" fill="#64748b" font-size="7">Initial</text>
+          <text x="250" y="148" text-anchor="middle" fill="#64748b" font-size="7">6 months</text>
+          <text x="380" y="148" text-anchor="middle" fill="#64748b" font-size="7">1 year</text>
+          <text x="510" y="148" text-anchor="middle" fill="#64748b" font-size="7">2+ years</text>
+          <!-- Trust line - starts high, drops -->
+          <path d="M120,30 Q180,32 250,60 Q320,85 380,100 Q440,115 510,125" stroke="#ef4444" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Data points -->
+          <circle cx="120" cy="30" r="4" fill="#22c55e" stroke="#fff" stroke-width="1"/>
+          <circle cx="250" cy="60" r="4" fill="#fbbf24" stroke="#fff" stroke-width="1"/>
+          <circle cx="380" cy="100" r="4" fill="#f97316" stroke="#fff" stroke-width="1"/>
+          <circle cx="510" cy="125" r="4" fill="#ef4444" stroke="#fff" stroke-width="1"/>
+          <!-- Labels at points -->
+          <text x="120" y="23" text-anchor="middle" fill="#22c55e" font-size="7" font-weight="bold">HIGH</text>
+          <text x="250" y="53" text-anchor="middle" fill="#fbbf24" font-size="7" font-weight="bold">DECLINING</text>
+          <text x="380" y="93" text-anchor="middle" fill="#f97316" font-size="7" font-weight="bold">LOW</text>
+          <text x="510" y="118" text-anchor="middle" fill="#ef4444" font-size="7" font-weight="bold">BROKEN</text>
+          <!-- Shaded area under curve -->
+          <path d="M120,30 Q180,32 250,60 Q320,85 380,100 Q440,115 510,125 L510,130 L120,130 Z" fill="url(#trustFade)"/>
+          <defs>
+            <linearGradient id="trustFade" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(34,197,94,0.1)"/>
+              <stop offset="50%" stop-color="rgba(251,191,36,0.05)"/>
+              <stop offset="100%" stop-color="rgba(239,68,68,0.1)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </section>
+
     <!-- DISCUSSION QUESTIONS -->
     <section class="fade-in-section">
       <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6">
@@ -429,6 +547,11 @@
       <p class="text-xs text-slate-500 text-center">Based on the case study: Trend Bridge Market Research Inc. &middot; For educational purposes only</p>
     </div>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-primary text-white shadow-lg shadow-primary/25 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-primary-dark active:scale-90">
+    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+  </button>
 
   <script src="assets/js/shared.js"></script>
   <script>

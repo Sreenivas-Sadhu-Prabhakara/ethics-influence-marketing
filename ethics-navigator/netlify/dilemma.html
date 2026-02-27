@@ -24,6 +24,9 @@
 </head>
 <body class="bg-background-dark font-display text-slate-100 antialiased overflow-x-hidden">
 
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress" class="reading-progress" style="width:0%"></div>
+
   <!-- NAV -->
   <nav class="fixed top-0 inset-x-0 z-50 glass border-b border-slate-800/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,10 +70,34 @@
       </div>
       <h1 class="text-3xl sm:text-4xl font-black text-white mb-3">The Core Dilemma</h1>
       <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">Introducing the protagonist, the environment, and the primary conflict that sets the entire case study in motion.</p>
+
+      <!-- Breadcrumb -->
+      <div class="flex items-center gap-2 mt-4 text-xs text-slate-500">
+        <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+        <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+        <span class="text-primary">Module 1: The Core Dilemma</span>
+      </div>
     </div>
   </header>
 
   <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+
+    <!-- KEY INSIGHT BANNER -->
+    <div class="fade-in-section bg-gradient-to-r from-primary/10 via-surface-dark to-secondary/10 rounded-2xl border border-primary/20 p-5 flex items-start gap-4">
+      <div class="flex-shrink-0">
+        <svg viewBox="0 0 60 60" class="w-12 h-12 animate-float" fill="none">
+          <circle cx="30" cy="30" r="28" stroke="#f97316" stroke-width="2" stroke-dasharray="6 4" opacity="0.3"/>
+          <circle cx="30" cy="22" r="10" fill="rgba(249,115,22,0.15)" stroke="#f97316" stroke-width="1.5"/>
+          <line x1="30" y1="32" x2="30" y2="45" stroke="#f97316" stroke-width="2"/>
+          <line x1="24" y1="38" x2="30" y2="32" stroke="#f97316" stroke-width="2"/>
+          <line x1="36" y1="38" x2="30" y2="32" stroke="#f97316" stroke-width="2"/>
+        </svg>
+      </div>
+      <div>
+        <p class="text-sm font-bold text-white mb-1">Key Insight</p>
+        <p class="text-sm text-slate-400">This module introduces the <strong class="text-primary">foundational conflict</strong> between research objectivity and client appeasement — the tension at the heart of every ethical breach in the case.</p>
+      </div>
+    </div>
 
     <!-- THE PROTAGONIST -->
     <section class="fade-in-section">
@@ -83,8 +110,40 @@
         </div>
         <div class="p-6">
           <div class="flex flex-col sm:flex-row items-start gap-6">
-            <div class="flex-shrink-0 h-24 w-24 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center border border-primary/20">
-              <span class="material-symbols-outlined text-5xl text-primary">school</span>
+            <!-- Replace the icon box with an SVG portrait illustration -->
+            <div class="flex-shrink-0 w-28 h-28 rounded-2xl overflow-hidden border border-primary/20 bg-gradient-to-br from-primary/10 to-secondary/10">
+              <svg viewBox="0 0 120 120" class="w-full h-full" fill="none">
+                <!-- Abstract professional portrait -->
+                <rect width="120" height="120" fill="url(#portraitBg)"/>
+                <!-- Head -->
+                <circle cx="60" cy="40" r="18" fill="rgba(249,115,22,0.15)" stroke="#f97316" stroke-width="2"/>
+                <!-- Hair -->
+                <path d="M42,35 Q45,20 60,18 Q75,20 78,35" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="1"/>
+                <!-- Eyes -->
+                <circle cx="53" cy="38" r="2" fill="#f97316"/>
+                <circle cx="67" cy="38" r="2" fill="#f97316"/>
+                <!-- Determined expression -->
+                <path d="M55,47 Q60,50 65,47" stroke="#f97316" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <!-- Body/Blazer -->
+                <path d="M35,70 Q38,55 60,58 Q82,55 85,70 L90,110 L30,110 Z" fill="rgba(249,115,22,0.08)" stroke="#f97316" stroke-width="1.5"/>
+                <!-- Lapels -->
+                <path d="M55,58 L50,80 L60,72 L70,80 L65,58" fill="none" stroke="#f97316" stroke-width="1" opacity="0.5"/>
+                <!-- Clipboard in hand -->
+                <rect x="78" y="72" width="18" height="24" rx="2" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1.5"/>
+                <line x1="82" y1="80" x2="92" y2="80" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+                <line x1="82" y1="84" x2="90" y2="84" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+                <line x1="82" y1="88" x2="91" y2="88" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+                <!-- Decorative dots -->
+                <circle cx="15" cy="15" r="2" fill="#f97316" opacity="0.2"/>
+                <circle cx="105" cy="20" r="3" fill="#136dec" opacity="0.15"/>
+                <circle cx="20" cy="100" r="2" fill="#22c55e" opacity="0.2"/>
+                <defs>
+                  <linearGradient id="portraitBg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="rgba(249,115,22,0.05)"/>
+                    <stop offset="100%" stop-color="rgba(19,109,236,0.05)"/>
+                  </linearGradient>
+                </defs>
+              </svg>
             </div>
             <div class="flex-1">
               <h3 class="text-2xl font-bold text-white mb-1">Eleanor Carrington</h3>
@@ -120,6 +179,43 @@
           </div>
         </div>
         <div class="p-6 space-y-4">
+          <!-- SVG illustration of toxic corporate environment -->
+          <div class="flex justify-center mb-6">
+            <svg viewBox="0 0 500 160" class="w-full max-w-md" fill="none">
+              <!-- Building -->
+              <rect x="180" y="30" width="140" height="100" rx="6" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+              <text x="250" y="20" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="700">TREND BRIDGE INC.</text>
+              <!-- Windows with scenes -->
+              <rect x="195" y="45" width="25" height="20" rx="2" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="1"/>
+              <rect x="230" y="45" width="25" height="20" rx="2" fill="rgba(19,109,236,0.1)" stroke="#136dec" stroke-width="1"/>
+              <rect x="265" y="45" width="25" height="20" rx="2" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+              <rect x="195" y="80" width="25" height="20" rx="2" fill="rgba(250,204,21,0.1)" stroke="#facc15" stroke-width="1"/>
+              <rect x="230" y="80" width="25" height="20" rx="2" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="1"/>
+              <rect x="265" y="80" width="25" height="20" rx="2" fill="rgba(139,92,246,0.1)" stroke="#8b5cf6" stroke-width="1"/>
+              <!-- Door -->
+              <rect x="238" y="108" width="24" height="22" rx="3" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+              <!-- Dollar signs floating around (corrupt culture) -->
+              <text x="90" y="60" fill="#f97316" font-size="16" opacity="0.3" font-weight="bold">$</text>
+              <text x="130" y="90" fill="#ef4444" font-size="12" opacity="0.2" font-weight="bold">$</text>
+              <text x="370" y="50" fill="#f97316" font-size="14" opacity="0.25" font-weight="bold">$</text>
+              <text x="400" y="80" fill="#ef4444" font-size="18" opacity="0.2" font-weight="bold">$</text>
+              <!-- Arrow: Client → Building -->
+              <text x="55" y="80" text-anchor="middle" fill="#64748b" font-size="8" font-weight="600">CLIENT</text>
+              <text x="55" y="92" text-anchor="middle" fill="#64748b" font-size="8">PRESSURE</text>
+              <path d="M90,82 L175,82" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowRed)"/>
+              <!-- Arrow: Building → Report -->
+              <path d="M325,82 L400,82" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowGreen)"/>
+              <text x="440" y="75" text-anchor="middle" fill="#64748b" font-size="8" font-weight="600">BIASED</text>
+              <text x="440" y="87" text-anchor="middle" fill="#64748b" font-size="8">REPORT</text>
+              <!-- Ground -->
+              <line x1="100" y1="132" x2="400" y2="132" stroke="#334155" stroke-width="1"/>
+              <defs>
+                <marker id="arrowRed" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#ef4444"/></marker>
+                <marker id="arrowGreen" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#22c55e"/></marker>
+              </defs>
+            </svg>
+          </div>
+
           <p class="text-slate-300 leading-relaxed">
             <strong class="text-white">Trend Bridge Market Research Inc.</strong> is a fast-paced firm serving mid-sized consumer businesses. In this company, success is not measured by the accuracy of findings—it is measured by how happy the client is with the report.
           </p>
@@ -191,6 +287,44 @@
       </div>
     </section>
 
+    <!-- MORAL COMPASS SVG -->
+    <section class="fade-in-section">
+      <div class="text-center mb-4">
+        <h2 class="text-xl font-bold text-white mb-2">The Moral Compass</h2>
+        <p class="text-sm text-slate-400 max-w-md mx-auto">Every choice pulls the compass needle in a different direction.</p>
+      </div>
+      <div class="flex justify-center">
+        <svg viewBox="0 0 300 300" class="w-64 h-64" fill="none">
+          <!-- Outer circle -->
+          <circle cx="150" cy="150" r="130" stroke="#334155" stroke-width="2"/>
+          <circle cx="150" cy="150" r="120" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+          <!-- Cardinal labels -->
+          <text x="150" y="30" text-anchor="middle" fill="#22c55e" font-size="11" font-weight="bold">INTEGRITY</text>
+          <text x="150" y="288" text-anchor="middle" fill="#ef4444" font-size="11" font-weight="bold">COMPLIANCE</text>
+          <text x="14" y="155" text-anchor="middle" fill="#136dec" font-size="10" font-weight="bold" transform="rotate(-90,14,155)">TRUTH</text>
+          <text x="286" y="155" text-anchor="middle" fill="#f97316" font-size="10" font-weight="bold" transform="rotate(90,286,155)">CAREER</text>
+          <!-- Tick marks -->
+          <line x1="150" y1="25" x2="150" y2="35" stroke="#22c55e" stroke-width="2"/>
+          <line x1="150" y1="265" x2="150" y2="275" stroke="#ef4444" stroke-width="2"/>
+          <line x1="25" y1="150" x2="35" y2="150" stroke="#136dec" stroke-width="2"/>
+          <line x1="265" y1="150" x2="275" y2="150" stroke="#f97316" stroke-width="2"/>
+          <!-- Inner rose -->
+          <path d="M150,70 L170,150 L150,230 L130,150Z" fill="rgba(249,115,22,0.06)" stroke="#f97316" stroke-width="1" opacity="0.5"/>
+          <path d="M70,150 L150,130 L230,150 L150,170Z" fill="rgba(19,109,236,0.06)" stroke="#136dec" stroke-width="1" opacity="0.5"/>
+          <!-- Needle (pointing toward integrity but pulled toward career) -->
+          <line x1="150" y1="150" x2="175" y2="65" stroke="#f97316" stroke-width="3" stroke-linecap="round">
+            <animateTransform attributeName="transform" type="rotate" values="0,150,150;15,150,150;-5,150,150;10,150,150;0,150,150" dur="6s" repeatCount="indefinite"/>
+          </line>
+          <line x1="150" y1="150" x2="135" y2="220" stroke="#ef4444" stroke-width="2" stroke-linecap="round" opacity="0.5">
+            <animateTransform attributeName="transform" type="rotate" values="0,150,150;15,150,150;-5,150,150;10,150,150;0,150,150" dur="6s" repeatCount="indefinite"/>
+          </line>
+          <!-- Center pin -->
+          <circle cx="150" cy="150" r="8" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+          <circle cx="150" cy="150" r="3" fill="#f97316"/>
+        </svg>
+      </div>
+    </section>
+
     <!-- THE CONFLICT -->
     <section class="fade-in-section">
       <div class="bg-gradient-to-br from-primary/5 to-red-500/5 rounded-2xl border border-primary/20 p-6 sm:p-8">
@@ -224,6 +358,14 @@
             <p class="text-xs text-slate-400">Risk her career by challenging the unethical practices she has witnessed.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- PULL QUOTE -->
+    <section class="fade-in-section">
+      <div class="pull-quote bg-surface-dark/50 rounded-xl p-6 text-lg text-slate-300">
+        Pleasing the client takes precedence over strict objectivity.
+        <p class="text-sm text-slate-500 mt-3 not-italic">— Carrington's Supervisor, upon being confronted with the survey alterations</p>
       </div>
     </section>
 
@@ -265,6 +407,11 @@
       <p class="text-xs text-slate-500 text-center">Based on the case study: Trend Bridge Market Research Inc. &middot; For educational purposes only</p>
     </div>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-primary text-white shadow-lg shadow-primary/25 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-primary-dark active:scale-90">
+    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+  </button>
 
   <script src="assets/js/shared.js"></script>
 </body>

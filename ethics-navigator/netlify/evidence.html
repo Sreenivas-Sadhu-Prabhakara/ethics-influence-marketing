@@ -25,6 +25,9 @@
 </head>
 <body class="bg-background-dark font-display text-slate-100 antialiased overflow-x-hidden">
 
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress" class="reading-progress" style="width:0%"></div>
+
   <!-- NAV -->
   <nav class="fixed top-0 inset-x-0 z-50 glass border-b border-slate-800/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,19 +62,65 @@
   <!-- PAGE HEADER -->
   <header class="pt-24 pb-12 px-6 relative overflow-hidden">
     <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-secondary/5 blur-[120px] pointer-events-none"></div>
-    <div class="max-w-5xl mx-auto relative z-10">
-      <div class="flex items-center gap-3 mb-4">
-        <div class="h-10 w-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
-          <span class="material-symbols-outlined">compare</span>
+    <div class="max-w-5xl mx-auto relative z-10 flex flex-col lg:flex-row lg:items-center gap-8">
+      <div class="flex-1">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-10 w-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined">compare</span>
+          </div>
+          <span class="text-xs font-semibold text-secondary uppercase tracking-wider">Module 2</span>
         </div>
-        <span class="text-xs font-semibold text-secondary uppercase tracking-wider">Module 2</span>
+        <h1 class="text-3xl sm:text-4xl font-black text-white mb-3">The Evidence Tracker</h1>
+        <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">Toggle between Carrington's original methodology and the final, skewed deliverables to understand the mechanics of biased research.</p>
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 mt-4 text-xs text-slate-500">
+          <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+          <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+          <span class="text-secondary">Module 2: Evidence Tracker</span>
+        </div>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-black text-white mb-3">The Evidence Tracker</h1>
-      <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">Toggle between Carrington's original methodology and the final, skewed deliverables to understand the mechanics of biased research.</p>
+      <!-- SVG magnifying glass with data -->
+      <div class="flex-shrink-0 w-44 h-44 animate-float-slow hidden lg:block">
+        <svg viewBox="0 0 200 200" class="w-full h-full" fill="none">
+          <!-- Magnifying glass -->
+          <circle cx="85" cy="85" r="55" fill="rgba(19,109,236,0.05)" stroke="#136dec" stroke-width="3"/>
+          <circle cx="85" cy="85" r="45" fill="rgba(19,109,236,0.03)" stroke="#136dec" stroke-width="1" stroke-dasharray="4 3"/>
+          <!-- Handle -->
+          <line x1="125" y1="125" x2="175" y2="175" stroke="#475569" stroke-width="8" stroke-linecap="round"/>
+          <line x1="125" y1="125" x2="175" y2="175" stroke="#136dec" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+          <!-- Data inside lens -->
+          <rect x="55" y="60" width="25" height="5" rx="1" fill="#22c55e" opacity="0.6"/>
+          <rect x="55" y="70" width="20" height="5" rx="1" fill="#22c55e" opacity="0.4"/>
+          <!-- Arrow showing transformation -->
+          <path d="M82,77 L88,77" stroke="#f97316" stroke-width="1.5" marker-end="url(#arrOrange)"/>
+          <!-- Altered data -->
+          <rect x="92" y="60" width="28" height="5" rx="1" fill="#ef4444" opacity="0.6"/>
+          <rect x="92" y="70" width="26" height="5" rx="1" fill="#ef4444" opacity="0.4"/>
+          <!-- Question mark -->
+          <text x="85" y="105" text-anchor="middle" fill="#136dec" font-size="20" font-weight="bold" opacity="0.3">?</text>
+          <!-- Sparkle -->
+          <circle cx="50" cy="45" r="3" fill="#facc15" opacity="0.4"><animate attributeName="opacity" values="0.4;0.1;0.4" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="120" cy="50" r="2" fill="#facc15" opacity="0.3"><animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/></circle>
+          <defs>
+            <marker id="arrOrange" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5" fill="#f97316"/></marker>
+          </defs>
+        </svg>
+      </div>
     </div>
   </header>
 
   <main class="max-w-5xl mx-auto px-6 pb-24 space-y-12">
+
+    <!-- EVIDENCE OVERVIEW BANNER -->
+    <div class="fade-in-section bg-secondary/5 border border-secondary/20 rounded-2xl p-5 flex items-start gap-4">
+      <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-secondary/10 flex items-center justify-center">
+        <span class="material-symbols-outlined text-secondary">info</span>
+      </div>
+      <div>
+        <p class="text-sm font-bold text-white mb-1">What You'll Find Here</p>
+        <p class="text-sm text-slate-400">This module presents <strong class="text-secondary">side-by-side comparisons</strong> of the original and altered survey questions, interactive toggle views, and a chart showing the artificially inflated results. Look for the bias techniques in each question pair.</p>
+      </div>
+    </div>
 
     <!-- ===== EXHIBIT 1: QUESTION MANIPULATION ===== -->
     <section class="fade-in-section">
@@ -81,6 +130,48 @@
         </span>
         <h2 class="text-2xl font-bold text-white">Question Manipulation</h2>
       </div>
+
+      <!-- SVG Diagram: How bias is introduced -->
+      <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6 mb-6">
+        <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-secondary text-lg">schema</span>
+          How Question Bias Is Engineered
+        </h3>
+        <svg viewBox="0 0 700 120" class="w-full" fill="none">
+          <!-- Step 1: Neutral Question -->
+          <rect x="10" y="25" width="145" height="70" rx="10" fill="rgba(34,197,94,0.08)" stroke="#22c55e" stroke-width="2"/>
+          <text x="82" y="50" text-anchor="middle" fill="#22c55e" font-size="10" font-weight="bold">NEUTRAL</text>
+          <text x="82" y="64" text-anchor="middle" fill="#94a3b8" font-size="8">Balanced question</text>
+          <text x="82" y="76" text-anchor="middle" fill="#94a3b8" font-size="8">allows any response</text>
+          <!-- Arrow 1 -->
+          <path d="M160,60 L200,60" stroke="#64748b" stroke-width="2" marker-end="url(#arrGray)"/>
+          <text x="180" y="50" text-anchor="middle" fill="#ef4444" font-size="7" font-weight="bold">ALTER</text>
+          <!-- Step 2: Leading Language -->
+          <rect x="205" y="25" width="145" height="70" rx="10" fill="rgba(251,191,36,0.08)" stroke="#fbbf24" stroke-width="2"/>
+          <text x="277" y="50" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="bold">LEADING</text>
+          <text x="277" y="64" text-anchor="middle" fill="#94a3b8" font-size="8">Positive assumptions</text>
+          <text x="277" y="76" text-anchor="middle" fill="#94a3b8" font-size="8">embedded in text</text>
+          <!-- Arrow 2 -->
+          <path d="M355,60 L395,60" stroke="#64748b" stroke-width="2" marker-end="url(#arrGray)"/>
+          <text x="375" y="50" text-anchor="middle" fill="#ef4444" font-size="7" font-weight="bold">REMOVE</text>
+          <!-- Step 3: Negative Suppressed -->
+          <rect x="400" y="25" width="145" height="70" rx="10" fill="rgba(239,68,68,0.08)" stroke="#ef4444" stroke-width="2"/>
+          <text x="472" y="50" text-anchor="middle" fill="#ef4444" font-size="10" font-weight="bold">SUPPRESSED</text>
+          <text x="472" y="64" text-anchor="middle" fill="#94a3b8" font-size="8">No path for</text>
+          <text x="472" y="76" text-anchor="middle" fill="#94a3b8" font-size="8">negative feedback</text>
+          <!-- Arrow 3 -->
+          <path d="M550,60 L590,60" stroke="#64748b" stroke-width="2" marker-end="url(#arrGray)"/>
+          <!-- Step 4: Manufactured Data -->
+          <rect x="595" y="25" width="95" height="70" rx="10" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="2"/>
+          <text x="642" y="48" text-anchor="middle" fill="#f97316" font-size="22" font-weight="bold">92%</text>
+          <text x="642" y="62" text-anchor="middle" fill="#f97316" font-size="8" font-weight="bold">POSITIVE</text>
+          <text x="642" y="76" text-anchor="middle" fill="#94a3b8" font-size="7">Manufactured</text>
+          <defs>
+            <marker id="arrGray" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#64748b"/></marker>
+          </defs>
+        </svg>
+      </div>
+
       <p class="text-slate-400 mb-6">The final survey subtly but significantly altered the framing to force positive responses. Use the toggles below to compare.</p>
 
       <!-- Comparison 1: Cleanliness -->
@@ -149,6 +240,70 @@
               "How helpful have staff members been during your visits?"
             </blockquote>
             <p class="text-xs text-slate-500 mt-2"><strong>Bias:</strong> Removes the opportunity to report negative encounters — assumes helpfulness.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW Comparison 3: Product Quality -->
+      <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <span class="material-symbols-outlined text-amber-400">inventory_2</span>
+            Product Quality Question
+          </h3>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="highlight-original rounded-xl p-4 transition-all">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+              <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Carrington's Original</span>
+            </div>
+            <blockquote class="text-white text-sm leading-relaxed italic border-none pl-0">
+              "How would you describe the freshness and quality of the produce section?"
+            </blockquote>
+            <p class="text-xs text-slate-500 mt-2"><strong>Method:</strong> Open-ended format — allows both positive and negative descriptions.</p>
+          </div>
+          <div class="highlight-altered rounded-xl p-4 transition-all">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="h-2 w-2 rounded-full bg-red-500"></span>
+              <span class="text-xs font-semibold text-red-400 uppercase tracking-wider">Final (Altered) Version</span>
+            </div>
+            <blockquote class="text-white text-sm leading-relaxed italic border-none pl-0">
+              "How satisfied are you with the excellent variety and freshness of our produce?"
+            </blockquote>
+            <p class="text-xs text-slate-500 mt-2"><strong>Bias:</strong> Double-barreled question with built-in positive descriptors ("excellent variety and freshness").</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW Comparison 4: Overall Experience -->
+      <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <span class="material-symbols-outlined text-purple-400">star_rate</span>
+            Overall Experience Question
+          </h3>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="highlight-original rounded-xl p-4 transition-all">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+              <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Carrington's Original</span>
+            </div>
+            <blockquote class="text-white text-sm leading-relaxed italic border-none pl-0">
+              "On a scale of 1–10, how would you rate your overall shopping experience today?"
+            </blockquote>
+            <p class="text-xs text-slate-500 mt-2"><strong>Method:</strong> Full numeric scale — captures the complete range of sentiment.</p>
+          </div>
+          <div class="highlight-altered rounded-xl p-4 transition-all">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="h-2 w-2 rounded-full bg-red-500"></span>
+              <span class="text-xs font-semibold text-red-400 uppercase tracking-wider">Final (Altered) Version</span>
+            </div>
+            <blockquote class="text-white text-sm leading-relaxed italic border-none pl-0">
+              "Would you say your experience today was 'Good', 'Very Good', or 'Excellent'?"
+            </blockquote>
+            <p class="text-xs text-slate-500 mt-2"><strong>Bias:</strong> Truncated scale with no neutral or negative options — forces a positive response regardless of actual experience.</p>
           </div>
         </div>
       </div>
@@ -255,6 +410,34 @@
       </div>
     </section>
 
+    <!-- ===== METHODOLOGY VIOLATION SUMMARY ===== -->
+    <section class="fade-in-section">
+      <div class="bg-gradient-to-br from-secondary/5 to-red-500/5 rounded-2xl border border-secondary/20 p-6 sm:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-secondary text-2xl">science</span>
+          <h2 class="text-xl font-bold text-white">Methodology Violations At a Glance</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-surface-dark/60 rounded-xl p-4 border border-slate-800 text-center">
+            <p class="text-3xl font-black text-red-400">4</p>
+            <p class="text-xs text-slate-400 mt-1">Questions Altered</p>
+          </div>
+          <div class="bg-surface-dark/60 rounded-xl p-4 border border-slate-800 text-center">
+            <p class="text-3xl font-black text-red-400">4</p>
+            <p class="text-xs text-slate-400 mt-1">Open-Ended Removed</p>
+          </div>
+          <div class="bg-surface-dark/60 rounded-xl p-4 border border-slate-800 text-center">
+            <p class="text-3xl font-black text-amber-400">3</p>
+            <p class="text-xs text-slate-400 mt-1">Bias Techniques Used</p>
+          </div>
+          <div class="bg-surface-dark/60 rounded-xl p-4 border border-slate-800 text-center">
+            <p class="text-3xl font-black text-primary">92%</p>
+            <p class="text-xs text-slate-400 mt-1">Avg. "Positive" Rate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- DISCUSSION QUESTIONS -->
     <section class="fade-in-section">
       <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6">
@@ -292,6 +475,11 @@
       <p class="text-xs text-slate-500 text-center">Based on the case study: Trend Bridge Market Research Inc. &middot; For educational purposes only</p>
     </div>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-primary text-white shadow-lg shadow-primary/25 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-primary-dark active:scale-90">
+    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+  </button>
 
   <script src="assets/js/shared.js"></script>
   <script>
