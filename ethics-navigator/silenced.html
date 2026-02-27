@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Silenced Voices — Ethics Navigator</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" href="assets/css/shared.css"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#f97316", "primary-dark": "#ea580c", "secondary": "#136dec",
+            "background-dark": "#0f172a", "surface-dark": "#1e293b", "surface-highlight": "#334155",
+          },
+          fontFamily: { "display": ["Inter","sans-serif"] },
+          borderRadius: { "DEFAULT":"0.5rem","lg":"0.75rem","xl":"1rem","2xl":"1.5rem","full":"9999px" },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background-dark font-display text-slate-100 antialiased overflow-x-hidden">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 inset-x-0 z-50 glass border-b border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-3xl">balance</span>
+          <span class="text-lg font-bold tracking-tight text-white">Ethics<span class="text-primary">Navigator</span></span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html"       class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Home</a>
+          <a href="dilemma.html"     class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Dilemma</a>
+          <a href="evidence.html"    class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Evidence</a>
+          <a href="silenced.html"    class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Silenced</a>
+          <a href="stakeholders.html" class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Stakeholders</a>
+          <a href="career.html"      class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Career</a>
+        </div>
+        <button onclick="toggleMobileNav()" class="md:hidden p-2 rounded-lg hover:bg-white/10">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-nav" class="hidden flex-col md:hidden bg-surface-dark border-t border-slate-800 px-4 pb-4 gap-1">
+      <a href="index.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Home</a>
+      <a href="dilemma.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Dilemma</a>
+      <a href="evidence.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Evidence</a>
+      <a href="silenced.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Silenced</a>
+      <a href="stakeholders.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Stakeholders</a>
+      <a href="career.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Career</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="pt-24 pb-12 px-6 relative overflow-hidden">
+    <div class="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-red-500/5 blur-[120px] pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto relative z-10">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="h-10 w-10 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400">
+          <span class="material-symbols-outlined">voice_over_off</span>
+        </div>
+        <span class="text-xs font-semibold text-red-400 uppercase tracking-wider">Module 3</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black text-white mb-3">The "Silenced Voices" Feature</h1>
+      <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">What was purposefully left out of the research—and why it matters more than what was kept in.</p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 pb-24 space-y-12">
+
+    <!-- THE OMISSION -->
+    <section class="fade-in-section">
+      <div class="bg-surface-dark rounded-2xl border border-slate-800 overflow-hidden">
+        <div class="bg-gradient-to-r from-red-500/10 to-transparent px-6 py-4 border-b border-slate-800">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-red-400">block</span>
+            <h2 class="text-xl font-bold text-white">The Omission</h2>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="bg-red-500/5 border border-red-500/20 rounded-xl p-5 mb-6">
+            <p class="text-base text-slate-200 leading-relaxed">
+              <strong class="text-red-400">None</strong> of the open-ended questions Carrington proposed were included in the final survey. Every single opportunity for customers to speak freely was removed.
+            </p>
+          </div>
+
+          <!-- What was removed -->
+          <h3 class="text-lg font-bold text-white mb-4">Questions That Were Eliminated</h3>
+          <div class="space-y-3">
+            <div class="group bg-background-dark rounded-xl p-4 border border-slate-800 relative overflow-hidden">
+              <div class="absolute inset-y-0 left-0 w-1 bg-red-500 rounded-l-xl"></div>
+              <div class="pl-4 flex items-start gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg mt-0.5 flex-shrink-0">close</span>
+                <div>
+                  <p class="text-sm text-white italic">"Is there anything about this store that you would like to see improved?"</p>
+                  <p class="text-xs text-slate-500 mt-1">Type: Open-ended &middot; Purpose: Identify real pain points</p>
+                </div>
+              </div>
+            </div>
+            <div class="group bg-background-dark rounded-xl p-4 border border-slate-800 relative overflow-hidden">
+              <div class="absolute inset-y-0 left-0 w-1 bg-red-500 rounded-l-xl"></div>
+              <div class="pl-4 flex items-start gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg mt-0.5 flex-shrink-0">close</span>
+                <div>
+                  <p class="text-sm text-white italic">"Please describe your most recent experience at this store in your own words."</p>
+                  <p class="text-xs text-slate-500 mt-1">Type: Open-ended &middot; Purpose: Capture authentic customer voice</p>
+                </div>
+              </div>
+            </div>
+            <div class="group bg-background-dark rounded-xl p-4 border border-slate-800 relative overflow-hidden">
+              <div class="absolute inset-y-0 left-0 w-1 bg-red-500 rounded-l-xl"></div>
+              <div class="pl-4 flex items-start gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg mt-0.5 flex-shrink-0">close</span>
+                <div>
+                  <p class="text-sm text-white italic">"What would make you more likely to recommend this store to friends or family?"</p>
+                  <p class="text-xs text-slate-500 mt-1">Type: Open-ended &middot; Purpose: Gauge genuine advocacy drivers</p>
+                </div>
+              </div>
+            </div>
+            <div class="group bg-background-dark rounded-xl p-4 border border-slate-800 relative overflow-hidden">
+              <div class="absolute inset-y-0 left-0 w-1 bg-red-500 rounded-l-xl"></div>
+              <div class="pl-4 flex items-start gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg mt-0.5 flex-shrink-0">close</span>
+                <div>
+                  <p class="text-sm text-white italic">"Have you ever felt frustrated during a visit? If so, please describe."</p>
+                  <p class="text-xs text-slate-500 mt-1">Type: Open-ended &middot; Purpose: Surface hidden dissatisfaction</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE JUSTIFICATION -->
+    <section class="fade-in-section">
+      <div class="bg-surface-dark rounded-2xl border border-slate-800 overflow-hidden">
+        <div class="bg-gradient-to-r from-amber-500/10 to-transparent px-6 py-4 border-b border-slate-800">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-amber-400">chat_bubble</span>
+            <h2 class="text-xl font-bold text-white">The Justification</h2>
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="text-slate-400 mb-6">Carrington's colleagues provided several reasons for excluding qualitative questions. Each excuse reveals a different aspect of the firm's compromised culture.</p>
+          
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="bg-background-dark rounded-xl p-5 border border-slate-800 text-center">
+              <div class="h-14 w-14 rounded-full bg-amber-500/10 flex items-center justify-center mx-auto mb-3">
+                <span class="material-symbols-outlined text-amber-400 text-2xl">schedule</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mb-2">"Too Time-Consuming"</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">Qualitative questions require manual coding and analysis — the team argued it wasn't worth the effort.</p>
+            </div>
+            <div class="bg-background-dark rounded-xl p-5 border border-slate-800 text-center">
+              <div class="h-14 w-14 rounded-full bg-amber-500/10 flex items-center justify-center mx-auto mb-3">
+                <span class="material-symbols-outlined text-amber-400 text-2xl">sentiment_dissatisfied</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mb-2">"Clients Dislike Complaints"</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">Open-ended responses might surface unexpected complaints that clients don't want to read in their reports.</p>
+            </div>
+            <div class="bg-background-dark rounded-xl p-5 border border-slate-800 text-center">
+              <div class="h-14 w-14 rounded-full bg-amber-500/10 flex items-center justify-center mx-auto mb-3">
+                <span class="material-symbols-outlined text-amber-400 text-2xl">troubleshoot</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mb-2">"Could Derail Discussions"</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">Qualitative data could prompt clients to scrutinize the report more heavily, threatening the positive narrative.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE ETHICAL IMPLICATION — Visual Impact -->
+    <section class="fade-in-section">
+      <div class="bg-gradient-to-br from-red-500/5 to-primary/5 rounded-2xl border border-red-500/20 p-6 sm:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-red-400 text-3xl">shield</span>
+          <h2 class="text-2xl font-bold text-white">The Ethical Implication</h2>
+        </div>
+        
+        <p class="text-slate-300 leading-relaxed mb-8">
+          By removing open-ended questions, the research team eliminated <strong class="text-white">customer authenticity</strong>. Real customers with real frustrations were given no way to express them. The survey became a one-way mirror reflecting only what the client wanted to see.
+        </p>
+
+        <!-- Before / After visual -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- WITH open-ended -->
+          <div class="bg-surface-dark/80 rounded-xl p-5 border border-emerald-500/30">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="h-3 w-3 rounded-full bg-emerald-500"></span>
+              <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider">With Open-Ended Questions</h3>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                <p class="text-sm text-slate-300">Customers can express frustrations</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                <p class="text-sm text-slate-300">Nuanced issues can be highlighted</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                <p class="text-sm text-slate-300">Data reflects real customer sentiment</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                <p class="text-sm text-slate-300">Business can make informed improvements</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+                <p class="text-sm text-slate-300">Research maintains professional credibility</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- WITHOUT open-ended -->
+          <div class="bg-surface-dark/80 rounded-xl p-5 border border-red-500/30">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="h-3 w-3 rounded-full bg-red-500"></span>
+              <h3 class="text-sm font-bold text-red-400 uppercase tracking-wider">Without Open-Ended Questions</h3>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg">cancel</span>
+                <p class="text-sm text-slate-300">Customer frustrations go unheard</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg">cancel</span>
+                <p class="text-sm text-slate-300">Complex issues are oversimplified</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg">cancel</span>
+                <p class="text-sm text-slate-300">Data is sanitized and one-dimensional</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg">cancel</span>
+                <p class="text-sm text-slate-300">Business makes decisions on incomplete data</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-red-400 text-lg">cancel</span>
+                <p class="text-sm text-slate-300">Research becomes a marketing tool, not science</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulated Voices -->
+    <section class="fade-in-section">
+      <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-slate-400">record_voice_over</span>
+          <h2 class="text-xl font-bold text-white">What Customers Might Have Said</h2>
+        </div>
+        <p class="text-sm text-slate-400 mb-6">These simulated responses illustrate the kind of feedback that was systematically prevented from appearing in the final report.</p>
+        
+        <div class="space-y-4">
+          <div class="bg-background-dark rounded-xl p-4 border border-slate-800 flex items-start gap-3">
+            <div class="h-8 w-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span class="text-xs font-bold text-blue-400">C1</span>
+            </div>
+            <div>
+              <p class="text-sm text-slate-300 italic">"The aisles near the bakery are always cluttered with boxes during evening hours. I've tripped twice."</p>
+              <p class="text-xs text-red-400 mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-xs">block</span> Would not appear in the biased survey</p>
+            </div>
+          </div>
+          <div class="bg-background-dark rounded-xl p-4 border border-slate-800 flex items-start gap-3">
+            <div class="h-8 w-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span class="text-xs font-bold text-purple-400">C2</span>
+            </div>
+            <div>
+              <p class="text-sm text-slate-300 italic">"Staff in the deli section seem overwhelmed. I've waited 15+ minutes multiple times with no acknowledgment."</p>
+              <p class="text-xs text-red-400 mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-xs">block</span> Would not appear in the biased survey</p>
+            </div>
+          </div>
+          <div class="bg-background-dark rounded-xl p-4 border border-slate-800 flex items-start gap-3">
+            <div class="h-8 w-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span class="text-xs font-bold text-emerald-400">C3</span>
+            </div>
+            <div>
+              <p class="text-sm text-slate-300 italic">"I love the store overall, but the parking situation on weekends is terrible. Almost made me stop coming."</p>
+              <p class="text-xs text-red-400 mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-xs">block</span> Would not appear in the biased survey</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCUSSION QUESTIONS -->
+    <section class="fade-in-section">
+      <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-amber-400">forum</span>
+          <h2 class="text-xl font-bold text-white">Discussion Questions</h2>
+        </div>
+        <ol class="space-y-3 list-decimal list-inside text-slate-300 text-sm leading-relaxed">
+          <li>Is omitting questions an equally serious ethical breach as altering them? Why or why not?</li>
+          <li>How does removing qualitative feedback change the power dynamic between the researcher and the respondent?</li>
+          <li>If a client explicitly asks for no open-ended questions, does the research firm have an obligation to push back?</li>
+          <li>What mechanisms could prevent the systematic silencing of customer voices in market research?</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <div class="flex items-center justify-between pt-4">
+      <a href="evidence.html" class="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm font-medium transition-colors">
+        <span class="material-symbols-outlined text-sm">arrow_back</span> Evidence Tracker
+      </a>
+      <a href="stakeholders.html" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-primary/25 transition-all active:scale-95 text-sm">
+        Next: Stakeholders <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 py-8 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">balance</span>
+        <span class="text-sm font-semibold text-white">Ethics<span class="text-primary">Navigator</span></span>
+      </div>
+      <p class="text-xs text-slate-500 text-center">Based on the case study: Trend Bridge Market Research Inc. &middot; For educational purposes only</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/shared.js"></script>
+</body>
+</html>

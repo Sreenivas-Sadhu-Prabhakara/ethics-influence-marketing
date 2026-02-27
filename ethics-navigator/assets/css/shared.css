@@ -1,0 +1,92 @@
+/* ===== Ethics Navigator — Shared Styles ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+/* --- Smooth scroll & base --- */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Scrollbar styling --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,.12); border-radius: 999px; }
+
+/* --- Utilities --- */
+.glass { background: rgba(30,41,59,.55); backdrop-filter: blur(16px) saturate(1.6); -webkit-backdrop-filter: blur(16px) saturate(1.6); }
+.glass-light { background: rgba(255,255,255,.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.text-gradient { background: linear-gradient(135deg, #f97316 0%, #facc15 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.text-gradient-blue { background: linear-gradient(135deg, #136dec 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* --- Card hover lift --- */
+.card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.25); }
+
+/* --- Animated pulse ring --- */
+@keyframes pulseRing {
+  0%   { transform: scale(.95); opacity: 1; }
+  70%  { transform: scale(1.15); opacity: 0; }
+  100% { transform: scale(.95); opacity: 0; }
+}
+.pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  animation: pulseRing 2s cubic-bezier(0.4,0,0.6,1) infinite;
+}
+
+/* --- Fade-in on scroll (used with IntersectionObserver) --- */
+.fade-in-section { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+/* --- Timeline connector --- */
+.timeline-line { position: relative; }
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #f97316, #136dec);
+}
+
+/* --- Toggle switch --- */
+.toggle-switch { position: relative; width: 52px; height: 28px; background: #334155; border-radius: 999px; cursor: pointer; transition: background .3s; }
+.toggle-switch.active { background: #f97316; }
+.toggle-switch::after { content:''; position: absolute; top:3px; left:3px; width:22px; height:22px; background:#fff; border-radius:50%; transition: transform .3s; }
+.toggle-switch.active::after { transform: translateX(24px); }
+
+/* --- Comparison highlight --- */
+.highlight-original { border-left: 3px solid #22c55e; background: rgba(34,197,94,.06); }
+.highlight-altered  { border-left: 3px solid #ef4444; background: rgba(239,68,68,.06); }
+
+/* --- Stat card accent bar --- */
+.stat-bar-orange::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#f97316,#facc15); border-radius:999px 999px 0 0; }
+.stat-bar-red::before    { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#ef4444,#f97316); border-radius:999px 999px 0 0; }
+.stat-bar-blue::before   { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#136dec,#38bdf8); border-radius:999px 999px 0 0; }
+
+/* --- Nav active state --- */
+.nav-link { position: relative; color: #94a3b8; transition: color .2s; }
+.nav-link:hover, .nav-link.active { color: #f97316; }
+.nav-link.active::after { content:''; position:absolute; bottom:-2px; left:50%; transform:translateX(-50%); width:6px; height:6px; background:#f97316; border-radius:50%; }
+
+/* --- Progress bar animation --- */
+@keyframes growWidth { from { width: 0; } }
+.animate-grow { animation: growWidth 1.2s ease-out forwards; }
+
+/* --- Stakeholder node --- */
+.stakeholder-node { transition: transform .2s, box-shadow .2s; }
+.stakeholder-node:hover { transform: scale(1.06); box-shadow: 0 8px 30px rgba(0,0,0,.3); }
+
+/* --- Print styles --- */
+@media print {
+  nav, .no-print { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+}
