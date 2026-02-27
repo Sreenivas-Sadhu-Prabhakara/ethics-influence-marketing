@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dilemma - Ethics Navigator</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7c3aed",
+                        "primary-light": "#a78bfa",
+                        "accent": "#ec4899",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-hero {
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);
+        }
+        .dark .gradient-hero {
+            background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 50%, #be185d 100%);
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display antialiased">
+
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-surface-light dark:bg-surface-dark backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-white font-bold text-lg">⚖</div>
+                <h1 class="text-xl font-bold text-primary">Ethics Navigator</h1>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html#dilemma" class="text-sm font-medium hover:text-primary transition-colors">The Dilemma</a>
+                <a href="evidence.html" class="text-sm font-medium hover:text-primary transition-colors">Evidence</a>
+                <a href="silenced.html" class="text-sm font-medium hover:text-primary transition-colors">Silenced Voices</a>
+                <a href="index.html#impact" class="text-sm font-medium hover:text-primary transition-colors">Impact</a>
+                <a href="index.html#context" class="text-sm font-medium hover:text-primary transition-colors">Guidelines</a>
+            </div>
+            <button class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="gradient-hero text-white py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center fade-in">
+        <h1 class="text-5xl sm:text-6xl font-bold mb-6 leading-tight">The Core Dilemma</h1>
+        <p class="text-xl opacity-90">Understanding Eleanor Carrington's Ethical Crisis at Trend Bridge Market Research</p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<main class="py-20 px-4 sm:px-6 lg:px-8 bg-background-light dark:bg-background-dark">
+    <div class="max-w-6xl mx-auto">
+        <!-- Introduction -->
+        <section class="mb-20">
+            <div class="bg-surface-light dark:bg-surface-dark rounded-xl p-8 shadow-lg border border-slate-200 dark:border-slate-700 mb-8">
+                <h2 class="text-3xl font-bold mb-4 text-primary">Welcome to Eleanor's World</h2>
+                <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                    This case study explores a pivotal moment in Eleanor Carrington's career at Trend Bridge Market Research Inc.—a moment that will test her professional ethics, her ambitions, and her integrity. Below, we introduce each key element of this complex situation.
+                </p>
+            </div>
+        </section>
+
+        <!-- The Four Components -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold mb-12 text-slate-900 dark:text-white">The Four Elements of the Dilemma</h2>
+
+            <!-- The Protagonist -->
+            <div class="mb-12">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-900/10 flex items-center justify-center text-3xl flex-shrink-0">
+                        👩
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-slate-900 dark:text-white">The Protagonist: Eleanor Carrington</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Research Associate at Trend Bridge Market Research Inc.</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold mb-4 text-blue-600 dark:text-blue-400">Background</h4>
+                        <ul class="space-y-3 text-slate-700 dark:text-slate-300 text-sm">
+                            <li class="flex gap-2">
+                                <span class="text-blue-500">✓</span>
+                                <span>Newly graduated with degree in Market Research</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-blue-500">✓</span>
+                                <span>Ambitious and eager to prove herself</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-blue-500">✓</span>
+                                <span>Trained in rigorous research methodology</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-blue-500">✓</span>
+                                <span>Strong commitment to ethical practice</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold mb-4 text-blue-600 dark:text-blue-400">What She Wants</h4>
+                        <ul class="space-y-3 text-slate-700 dark:text-slate-300 text-sm">
+                            <li class="flex gap-2">
+                                <span class="text-blue-500">→</span>
+                                <span>To succeed in her career</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-blue-500">→</span>
+                                <span>To maintain professional integrity</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-blue-500">→</span>
+                                <span>To conduct research responsibly</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-blue-500">→</span>
+                                <span>To advance within the organization</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Environment -->
+            <div class="mb-12">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-purple-100 to-purple-50 dark:from-purple-900/30 dark:to-purple-900/10 flex items-center justify-center text-3xl flex-shrink-0">
+                        🏢
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-slate-900 dark:text-white">The Environment: Trend Bridge Market Research Inc.</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">A Mid-Sized, Fast-Paced Research Firm</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold mb-4 text-purple-600 dark:text-purple-400">Organizational Culture</h4>
+                        <ul class="space-y-3 text-slate-700 dark:text-slate-300 text-sm">
+                            <li class="flex gap-2">
+                                <span class="text-purple-500">◆</span>
+                                <span>Client satisfaction is paramount</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-purple-500">◆</span>
+                                <span>Revenue targets drive decisions</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-purple-500">◆</span>
+                                <span>Client retention over truthfulness</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-purple-500">◆</span>
+                                <span>Pressure to deliver "positive" stories</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold mb-4 text-purple-600 dark:text-purple-400">Business Model</h4>
+                        <ul class="space-y-3 text-slate-700 dark:text-slate-300 text-sm">
+                            <li class="flex gap-2">
+                                <span class="text-purple-500">→</span>
+                                <span>Serves mid-sized consumer businesses</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-purple-500">→</span>
+                                <span>Success tied to client satisfaction</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-purple-500">→</span>
+                                <span>Repeat business = career growth</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span class="text-purple-500">→</span>
+                                <span>Metrics-driven compensation</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Trigger Incident -->
+            <div class="mb-12">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-amber-100 to-amber-50 dark:from-amber-900/30 dark:to-amber-900/10 flex items-center justify-center text-3xl flex-shrink-0">
+                        ⚡
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-slate-900 dark:text-white">The Trigger Incident: Survey Question Manipulation</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">The Moment Everything Changed</p>
+                    </div>
+                </div>
+
+                <div class="bg-surface-light dark:bg-surface-dark rounded-lg p-8 border-2 border-amber-300 dark:border-amber-900">
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-amber-600 dark:text-amber-400 mb-3">What Eleanor Did</h4>
+                            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                                Eleanor was tasked with creating survey questions for a grocery store client. She crafted <span class="font-semibold">carefully balanced, neutral questions</span> following best practices from the American Marketing Association and AAPOR guidelines. Her goal: to gather honest customer feedback about the store's strengths and weaknesses.
+                            </p>
+                        </div>
+
+                        <div class="h-0.5 bg-gradient-to-r from-amber-300 to-transparent dark:from-amber-700"></div>
+
+                        <div>
+                            <h4 class="font-bold text-red-600 dark:text-red-400 mb-3">What She Discovered</h4>
+                            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                                During the client presentation, Eleanor noticed that <span class="font-semibold">all her original questions had been replaced</span> with differently worded versions. When she reviewed them closely, she realized the new wording was designed to pressure respondents toward positive answers—a clear violation of research ethics.
+                            </p>
+                        </div>
+
+                        <div class="bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-900 p-4 rounded-lg mt-6">
+                            <p class="text-sm text-red-700 dark:text-red-300">
+                                <span class="font-bold">Key Realization:</span> This wasn't accidental or careless—it was deliberate manipulation to guarantee positive survey results.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Conflict -->
+            <div class="mb-12">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-red-100 to-red-50 dark:from-red-900/30 dark:to-red-900/10 flex items-center justify-center text-3xl flex-shrink-0">
+                        ⚖️
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-slate-900 dark:text-white">The Conflict: Career vs. Conscience</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">The Impossible Choice</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Option 1: Stay Silent -->
+                    <div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold mb-4 text-slate-900 dark:text-white">Option 1: Stay Silent</h4>
+                        <p class="text-sm text-slate-700 dark:text-slate-300 mb-4">
+                            Say nothing and let the report be published as-is.
+                        </p>
+                        <div class="bg-green-50 dark:bg-green-900/10 p-3 rounded mb-3">
+                            <p class="text-xs font-bold text-green-700 dark:text-green-300 mb-1">Upside</p>
+                            <p class="text-xs text-green-600 dark:text-green-200">• Keep the job<br/>• Maintain good standing with supervisor<br/>• Preserve career trajectory</p>
+                        </div>
+                        <div class="bg-red-50 dark:bg-red-900/10 p-3 rounded">
+                            <p class="text-xs font-bold text-red-700 dark:text-red-300 mb-1">Downside</p>
+                            <p class="text-xs text-red-600 dark:text-red-200">• Compromise ethics<br/>• Contribute to false data<br/>• Become complicit in fraud</p>
+                        </div>
+                    </div>
+
+                    <!-- Option 2: Conform -->
+                    <div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 border border-slate-200 dark:border-slate-700">
+                        <h4 class="font-bold mb-4 text-slate-900 dark:text-white">Option 2: Conform</h4>
+                        <p class="text-sm text-slate-700 dark:text-slate-300 mb-4">
+                            Accept the supervisor's argument and defend the altered questions.
+                        </p>
+                        <div class="bg-amber-50 dark:bg-amber-900/10 p-3 rounded mb-3">
+                            <p class="text-xs font-bold text-amber-700 dark:text-amber-300 mb-1">Upside</p>
+                            <p class="text-xs text-amber-600 dark:text-amber-200">• Align with team expectations<br/>• Possibly earn client gratitude<br/>• Advance as "team player"</p>
+                        </div>
+                        <div class="bg-red-50 dark:bg-red-900/10 p-3 rounded">
+                            <p class="text-xs font-bold text-red-700 dark:text-red-300 mb-1">Downside</p>
+                            <p class="text-xs text-red-600 dark:text-red-200">• Abandon professional values<br/>• Enable unethical practice<br/>• Normalize compromise</p>
+                        </div>
+                    </div>
+
+                    <!-- Option 3: Speak Up -->
+                    <div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 border-2 border-primary">
+                        <h4 class="font-bold mb-4 text-primary">Option 3: Speak Up</h4>
+                        <p class="text-sm text-slate-700 dark:text-slate-300 mb-4">
+                            Formally object to the question changes and document the breach.
+                        </p>
+                        <div class="bg-blue-50 dark:bg-blue-900/10 p-3 rounded mb-3">
+                            <p class="text-xs font-bold text-blue-700 dark:text-blue-300 mb-1">Upside</p>
+                            <p class="text-xs text-blue-600 dark:text-blue-200">• Protect integrity<br/>• Document ethical stance<br/>• Correct the record</p>
+                        </div>
+                        <div class="bg-red-50 dark:bg-red-900/10 p-3 rounded">
+                            <p class="text-xs font-bold text-red-700 dark:text-red-300 mb-1">Downside</p>
+                            <p class="text-xs text-red-600 dark:text-red-200">• Risk job termination<br/>• Damage with supervisor<br/>• Potential blacklisting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supervisor's Response -->
+        <section class="mb-20">
+            <div class="bg-surface-light dark:bg-surface-dark rounded-xl p-8 shadow-lg border-2 border-orange-300 dark:border-orange-900">
+                <h3 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white">The Supervisor's Dismissal</h3>
+                <div class="space-y-4">
+                    <p class="text-slate-700 dark:text-slate-300">
+                        When Eleanor raises her concerns, her supervisor dismisses them with a single, chilling statement:
+                    </p>
+                    <div class="bg-orange-100 dark:bg-orange-900/20 border-l-4 border-orange-600 p-6 rounded-lg my-6">
+                        <p class="text-lg italic text-orange-800 dark:text-orange-200 font-semibold">
+                            "Eleanor, pleasing the client takes precedence over strict objectivity. This is how we do business."
+                        </p>
+                    </div>
+                    <p class="text-slate-700 dark:text-slate-300">
+                        This statement reveals the core of Trend Bridge's ethical problem: a willingness to explicitly prioritize client satisfaction over research integrity. It's not presented as a necessary evil—it's presented as standard practice, as "how we do business."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Central Question -->
+        <section>
+            <div class="bg-gradient-to-r from-primary/20 to-accent/20 border-l-4 border-primary rounded-xl p-8">
+                <h3 class="text-3xl font-bold mb-4 text-primary">The Central Question</h3>
+                <p class="text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
+                    <span class="font-bold">How far should a professional compromise their ethical principles for career advancement and client satisfaction?</span>
+                </p>
+                <p class="text-slate-700 dark:text-slate-300 mt-6">
+                    This question sits at the heart of every professional dilemma. Eleanor faces it in its starkest form: betray her values or risk her career. There is no "correct" answer, but there are consequences—real, significant consequences—for whatever path she chooses.
+                </p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- Navigation to Other Modules -->
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-surface-light dark:bg-surface-dark">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-slate-900 dark:text-white">Continue Your Exploration</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <a href="evidence.html" class="group bg-background-light dark:bg-background-dark rounded-lg p-6 border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-lg transition-all">
+                <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined">search</span>
+                </div>
+                <h3 class="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Evidence Tracker</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400">See how the survey questions were actually manipulated</p>
+            </a>
+
+            <a href="silenced.html" class="group bg-background-light dark:bg-background-dark rounded-lg p-6 border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-lg transition-all">
+                <div class="w-12 h-12 rounded-lg bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined">cancel</span>
+                </div>
+                <h3 class="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Silenced Voices</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400">Learn what was deliberately omitted from the research</p>
+            </a>
+
+            <a href="index.html#impact" class="group bg-background-light dark:bg-background-dark rounded-lg p-6 border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-lg transition-all">
+                <div class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined">balance</span>
+                </div>
+                <h3 class="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Impact Analysis</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400">Understand the ripple effects on all stakeholders</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-surface-light dark:bg-surface-dark border-t border-slate-200 dark:border-slate-700 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+        <p class="text-sm text-slate-600 dark:text-slate-400 text-center">
+            © 2025 The Ethics Navigator. Educational resource for business ethics and research methodology.
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
