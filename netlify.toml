@@ -1,5 +1,6 @@
 [build]
-  publish = "ethics-navigator/netlify"
+  base = "ethics-navigator/"
+  publish = "netlify"
   command = "echo 'Static site — no build needed'"
 
 [[headers]]
