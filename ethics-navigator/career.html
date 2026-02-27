@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career vs. Ethics — Ethics Navigator</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" href="assets/css/shared.css"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#f97316", "primary-dark": "#ea580c", "secondary": "#136dec",
+            "background-dark": "#0f172a", "surface-dark": "#1e293b", "surface-highlight": "#334155",
+          },
+          fontFamily: { "display": ["Inter","sans-serif"] },
+          borderRadius: { "DEFAULT":"0.5rem","lg":"0.75rem","xl":"1rem","2xl":"1.5rem","full":"9999px" },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background-dark font-display text-slate-100 antialiased overflow-x-hidden">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 inset-x-0 z-50 glass border-b border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-3xl">balance</span>
+          <span class="text-lg font-bold tracking-tight text-white">Ethics<span class="text-primary">Navigator</span></span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html"       class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Home</a>
+          <a href="dilemma.html"     class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Dilemma</a>
+          <a href="evidence.html"    class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Evidence</a>
+          <a href="silenced.html"    class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Silenced</a>
+          <a href="stakeholders.html" class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Stakeholders</a>
+          <a href="career.html"      class="nav-link px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Career</a>
+        </div>
+        <button onclick="toggleMobileNav()" class="md:hidden p-2 rounded-lg hover:bg-white/10">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-nav" class="hidden flex-col md:hidden bg-surface-dark border-t border-slate-800 px-4 pb-4 gap-1">
+      <a href="index.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Home</a>
+      <a href="dilemma.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Dilemma</a>
+      <a href="evidence.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Evidence</a>
+      <a href="silenced.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Silenced</a>
+      <a href="stakeholders.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Stakeholders</a>
+      <a href="career.html" class="nav-link block px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5">Career</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="pt-24 pb-12 px-6 relative overflow-hidden">
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-amber-500/5 blur-[120px] pointer-events-none"></div>
+    <div class="max-w-5xl mx-auto relative z-10">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="h-10 w-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400">
+          <span class="material-symbols-outlined">trending_up</span>
+        </div>
+        <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Module 5</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black text-white mb-3">📈 Career Trajectory vs. Ethics</h1>
+      <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">This final module grounds you in the professional and historical realities framing the dilemma—career pressure, industry rules, and cautionary tales.</p>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 pb-24 space-y-12">
+
+    <!-- ===== SECTION 1: EXHIBIT 9 — CAREER PROGRESSION ===== -->
+    <section class="fade-in-section">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold">
+          <span class="material-symbols-outlined text-sm">work</span> Exhibit 9
+        </span>
+        <h2 class="text-2xl font-bold text-white">Career Progression Milestones</h2>
+      </div>
+      <p class="text-slate-400 mb-8">At Trend Bridge, career advancement is tightly linked to client satisfaction metrics. For someone in Carrington's position, that creates an impossible bind.</p>
+
+      <!-- The Pressure Cooker callout -->
+      <div class="bg-gradient-to-r from-amber-500/10 to-red-500/5 border border-amber-500/20 rounded-2xl p-6 mb-8">
+        <div class="flex items-start gap-4">
+          <div class="h-12 w-12 flex-shrink-0 rounded-xl bg-amber-500/20 flex items-center justify-center">
+            <span class="material-symbols-outlined text-amber-400 text-2xl">local_fire_department</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white mb-2">The Pressure Cooker</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">Carrington is in her <strong class="text-amber-400">first year</strong> as an Entry-Level Research Associate. At Trend Bridge, career progression is <strong class="text-white">heavily influenced by client satisfaction</strong>. Speaking up about ethical violations poses a direct, immediate threat to her ability to reach the "Early Career Growth" or "Mid-Level" stages—promotions that determine her entire professional trajectory.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Career Ladder Timeline -->
+      <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6">
+        <h3 class="text-lg font-bold text-white mb-6">Career Ladder at Trend Bridge</h3>
+        <div class="space-y-0 timeline-line pl-4">
+
+          <!-- Stage 1: Entry Level (current) -->
+          <div class="relative pl-12 pb-8">
+            <div class="absolute left-[11px] top-1 w-[18px] h-[18px] rounded-full bg-amber-500 border-4 border-background-dark z-10 pulse-ring text-amber-500"></div>
+            <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Year 0–1</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold">⬤ YOU ARE HERE</span>
+              </div>
+              <h4 class="text-base font-bold text-white">Entry Level — Research Associate</h4>
+              <p class="text-sm text-slate-400 mt-1">Assigned to projects, executes survey design under supervision. <strong class="text-slate-200">Advancement depends on supervisor evaluations and client feedback scores.</strong></p>
+            </div>
+          </div>
+
+          <!-- Stage 2: Early Career Growth -->
+          <div class="relative pl-12 pb-8">
+            <div class="absolute left-[11px] top-1 w-[18px] h-[18px] rounded-full bg-slate-600 border-4 border-background-dark z-10"></div>
+            <div class="bg-surface-highlight/40 border border-slate-700 rounded-xl p-4">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Year 1–3</span>
+              <h4 class="text-base font-bold text-white mt-1">Early Career Growth — Senior Associate</h4>
+              <p class="text-sm text-slate-400 mt-1">Leads small projects, begins client interaction. Requires <strong class="text-slate-200">positive performance reviews</strong> and demonstrated ability to maintain client relationships.</p>
+            </div>
+          </div>
+
+          <!-- Stage 3: Mid-Level -->
+          <div class="relative pl-12 pb-8">
+            <div class="absolute left-[11px] top-1 w-[18px] h-[18px] rounded-full bg-slate-600 border-4 border-background-dark z-10"></div>
+            <div class="bg-surface-highlight/40 border border-slate-700 rounded-xl p-4">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Year 3–6</span>
+              <h4 class="text-base font-bold text-white mt-1">Mid-Level — Project Manager</h4>
+              <p class="text-sm text-slate-400 mt-1">Manages full project lifecycles, mentors junior staff. Gatekept by <strong class="text-slate-200">client retention metrics and revenue contribution</strong>.</p>
+            </div>
+          </div>
+
+          <!-- Stage 4: Senior -->
+          <div class="relative pl-12 pb-8">
+            <div class="absolute left-[11px] top-1 w-[18px] h-[18px] rounded-full bg-slate-600 border-4 border-background-dark z-10"></div>
+            <div class="bg-surface-highlight/40 border border-slate-700 rounded-xl p-4">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Year 6–10</span>
+              <h4 class="text-base font-bold text-white mt-1">Senior — Director of Research</h4>
+              <p class="text-sm text-slate-400 mt-1">Sets methodological standards, oversees quality assurance. The irony: the person who shapes ethics policy is promoted based on how well they pleased clients.</p>
+            </div>
+          </div>
+
+          <!-- Stage 5: Leadership -->
+          <div class="relative pl-12">
+            <div class="absolute left-[11px] top-1 w-[18px] h-[18px] rounded-full bg-slate-600 border-4 border-background-dark z-10"></div>
+            <div class="bg-surface-highlight/40 border border-slate-700 rounded-xl p-4">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Year 10+</span>
+              <h4 class="text-base font-bold text-white mt-1">Leadership — VP / Partner</h4>
+              <p class="text-sm text-slate-400 mt-1">Defines firm culture and values. If the pipeline selects for compliance over integrity, leadership reflects that bias.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Risk Assessment -->
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6 relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 to-amber-500"></div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-symbols-outlined text-red-400">dangerous</span>
+            <h3 class="text-base font-bold text-white">If She Speaks Up</h3>
+          </div>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2 text-sm text-slate-300">
+              <span class="material-symbols-outlined text-red-400 text-sm mt-0.5 flex-shrink-0">close</span>
+              Labelled as "difficult" or "not a team player"
+            </li>
+            <li class="flex items-start gap-2 text-sm text-slate-300">
+              <span class="material-symbols-outlined text-red-400 text-sm mt-0.5 flex-shrink-0">close</span>
+              Negative supervisor evaluation
+            </li>
+            <li class="flex items-start gap-2 text-sm text-slate-300">
+              <span class="material-symbols-outlined text-red-400 text-sm mt-0.5 flex-shrink-0">close</span>
+              Stalled promotion to Senior Associate
+            </li>
+            <li class="flex items-start gap-2 text-sm text-slate-300">
+              <span class="material-symbols-outlined text-red-400 text-sm mt-0.5 flex-shrink-0">close</span>
+              Possible reassignment or termination
+            </li>
+          </ul>
+        </div>
+        <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6 relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-cyan-500"></div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-symbols-outlined text-emerald-400">verified</span>
+            <h3 class="text-base font-bold text-white">If She Stays Silent</h3>
+          </div>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2 text-sm text-slate-300">
+              <span class="material-symbols-outlined text-emerald-400 text-sm mt-0.5 flex-shrink-0">check</span>
+              Smooth path to next career stage
+            </li>
+            <li class="flex items-start gap-2 text-sm text-slate-300">
+              <span class="material-symbols-outlined text-emerald-400 text-sm mt-0.5 flex-shrink-0">check</span>
+              Maintains supervisor relationship
+            </li>
+            <li class="flex items-start gap-2 text-sm text-slate-300">
+              <span class="material-symbols-outlined text-amber-400 text-sm mt-0.5 flex-shrink-0">warning</span>
+              Compromised personal ethics
+            </li>
+            <li class="flex items-start gap-2 text-sm text-slate-300">
+              <span class="material-symbols-outlined text-amber-400 text-sm mt-0.5 flex-shrink-0">warning</span>
+              Sets a precedent for future concessions
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: EXHIBITS 3 & 4 — INDUSTRY BENCHMARKS ===== -->
+    <section class="fade-in-section">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-semibold">
+          <span class="material-symbols-outlined text-sm">gavel</span> Exhibits 3 &amp; 4
+        </span>
+        <h2 class="text-2xl font-bold text-white">Industry Benchmarks &amp; The Rules</h2>
+      </div>
+      <p class="text-slate-400 mb-8">The ethical lines in market research aren't suggestions—they're professional mandates. Here are the standards that were violated.</p>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <!-- AMA -->
+        <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6 relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-violet-500"></div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="h-12 w-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-purple-400 text-2xl">shield</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white">AMA Code of Ethics</h3>
+              <p class="text-xs text-slate-500">American Marketing Association</p>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="bg-purple-500/5 border border-purple-500/10 rounded-lg p-3">
+              <p class="text-xs font-semibold text-purple-300 mb-1">Core Principle</p>
+              <p class="text-sm text-slate-300 leading-relaxed">"Marketers must not knowingly misrepresent research findings or omit relevant data that could alter the interpretation of results."</p>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-red-400 text-sm mt-0.5">gpp_bad</span>
+              <p class="text-sm text-slate-400"><strong class="text-white">Violated:</strong> Survey questions were rewritten to produce more favorable responses, and open-ended questions were removed entirely.</p>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-red-400 text-sm mt-0.5">gpp_bad</span>
+              <p class="text-sm text-slate-400"><strong class="text-white">Violated:</strong> Findings were framed to satisfy the client rather than reflect the truth of the data collected.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- AAPOR -->
+        <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6 relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="h-12 w-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-blue-400 text-2xl">policy</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white">AAPOR Standards</h3>
+              <p class="text-xs text-slate-500">American Association for Public Opinion Research</p>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="bg-blue-500/5 border border-blue-500/10 rounded-lg p-3">
+              <p class="text-xs font-semibold text-blue-300 mb-1">Core Mandate</p>
+              <p class="text-sm text-slate-300 leading-relaxed">"Survey questions must use balanced, neutral wording. Leading or loaded questions undermine the validity and reliability of research outcomes."</p>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-red-400 text-sm mt-0.5">gpp_bad</span>
+              <p class="text-sm text-slate-400"><strong class="text-white">Violated:</strong> Questions were reworded with positive framing and leading language to steer respondents toward favorable answers.</p>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-red-400 text-sm mt-0.5">gpp_bad</span>
+              <p class="text-sm text-slate-400"><strong class="text-white">Violated:</strong> Sampling was biased by removing opportunities for negative feedback.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Violations summary -->
+      <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-red-400">report</span>
+          <h3 class="text-lg font-bold text-white">Violation Summary</h3>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="bg-background-dark rounded-xl p-4 border border-slate-800 text-center">
+            <p class="text-3xl font-black text-red-400">3</p>
+            <p class="text-xs text-slate-400 mt-1">AMA Principles Broken</p>
+          </div>
+          <div class="bg-background-dark rounded-xl p-4 border border-slate-800 text-center">
+            <p class="text-3xl font-black text-red-400">2</p>
+            <p class="text-xs text-slate-400 mt-1">AAPOR Standards Violated</p>
+          </div>
+          <div class="bg-background-dark rounded-xl p-4 border border-slate-800 text-center">
+            <p class="text-3xl font-black text-amber-400">100%</p>
+            <p class="text-xs text-slate-400 mt-1">Open-Ended Questions Removed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: EXHIBIT 4 — HISTORICAL WARNING ===== -->
+    <section class="fade-in-section">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold">
+          <span class="material-symbols-outlined text-sm">history</span> Exhibit 4
+        </span>
+        <h2 class="text-2xl font-bold text-white">The Historical Warning</h2>
+      </div>
+      <p class="text-slate-400 mb-8">History proves that biased research doesn't just fail quietly—it can become one of the most famous corporate blunders of all time.</p>
+
+      <!-- New Coke case study -->
+      <div class="bg-surface-dark rounded-2xl border border-slate-800 overflow-hidden">
+        <div class="bg-gradient-to-r from-red-500/10 to-amber-500/5 px-6 py-4 border-b border-slate-800">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-red-400 text-2xl">science</span>
+            <div>
+              <h3 class="text-xl font-bold text-white">The "New Coke" Disaster — 1985</h3>
+              <p class="text-xs text-slate-500">A Cautionary Tale in Biased Research</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 space-y-6">
+
+          <!-- Story -->
+          <div class="bg-background-dark rounded-xl p-5 border border-slate-800">
+            <p class="text-sm text-slate-300 leading-relaxed">In 1985, Coca-Cola reformulated its flagship product based on research that heavily relied on <strong class="text-white">blind taste tests</strong> and <strong class="text-white">selectively framed survey data</strong>. The research showed consumers preferred the sweeter "New Coke" formula. What it <em>didn't</em> capture was the deep <strong class="text-amber-400">emotional and cultural attachment</strong> consumers had to the original product.</p>
+          </div>
+
+          <!-- What went wrong -->
+          <h4 class="text-base font-bold text-white">What Went Wrong</h4>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3 bg-background-dark rounded-xl p-4 border border-slate-800">
+              <div class="h-10 w-10 flex-shrink-0 rounded-lg bg-red-500/10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-red-400">group_off</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white">Biased Sampling</p>
+                <p class="text-xs text-slate-400 mt-1">Taste tests focused on preference in isolation, ignoring the broader context of brand loyalty, nostalgia, and identity.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 bg-background-dark rounded-xl p-4 border border-slate-800">
+              <div class="h-10 w-10 flex-shrink-0 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-amber-400">frame_inspect</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white">Selective Framing</p>
+                <p class="text-xs text-slate-400 mt-1">Results were presented to confirm the desired outcome—launch a new product—rather than to surface potential risks.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 bg-background-dark rounded-xl p-4 border border-slate-800">
+              <div class="h-10 w-10 flex-shrink-0 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-purple-400">voice_over_off</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white">Silenced Dissent</p>
+                <p class="text-xs text-slate-400 mt-1">Internal voices questioning the methodology were overridden by the pressure to move forward with the rebrand.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 bg-background-dark rounded-xl p-4 border border-slate-800">
+              <div class="h-10 w-10 flex-shrink-0 rounded-lg bg-red-500/10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-red-400">trending_down</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white">Catastrophic Backlash</p>
+                <p class="text-xs text-slate-400 mt-1">Massive public outrage, protest campaigns, and a humiliating reversal back to "Coca-Cola Classic" within 79 days.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parallel to Trend Bridge -->
+          <div class="bg-amber-500/5 border border-amber-500/20 rounded-xl p-5 mt-4">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="material-symbols-outlined text-amber-400">compare_arrows</span>
+              <h4 class="text-base font-bold text-white">The Parallel to Trend Bridge</h4>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4 text-sm">
+              <div>
+                <p class="text-xs font-semibold text-amber-400 mb-1">New Coke (1985)</p>
+                <ul class="space-y-1.5 text-slate-400">
+                  <li class="flex items-start gap-1.5"><span class="text-amber-400">•</span> Taste tests ignored emotional context</li>
+                  <li class="flex items-start gap-1.5"><span class="text-amber-400">•</span> Results framed to support a desired launch</li>
+                  <li class="flex items-start gap-1.5"><span class="text-amber-400">•</span> Dissenting opinions dismissed</li>
+                  <li class="flex items-start gap-1.5"><span class="text-amber-400">•</span> Massive public backlash</li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-primary mb-1">Trend Bridge (Today)</p>
+                <ul class="space-y-1.5 text-slate-400">
+                  <li class="flex items-start gap-1.5"><span class="text-primary">•</span> Survey removed open-ended context</li>
+                  <li class="flex items-start gap-1.5"><span class="text-primary">•</span> Questions reframed to please the client</li>
+                  <li class="flex items-start gap-1.5"><span class="text-primary">•</span> Carrington's concerns overridden</li>
+                  <li class="flex items-start gap-1.5"><span class="text-primary">•</span> Client risks building on false data</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THE CORE TENSION ===== -->
+    <section class="fade-in-section">
+      <div class="bg-gradient-to-br from-amber-500/10 via-surface-dark to-red-500/5 rounded-2xl border border-amber-500/20 p-6">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-amber-400 text-2xl">balance</span>
+          <h2 class="text-2xl font-bold text-white">The Core Tension</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-background-dark/60 rounded-xl p-5 border border-slate-800">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="material-symbols-outlined text-amber-400">work</span>
+              <h3 class="text-base font-bold text-white">Career Self-Interest</h3>
+            </div>
+            <p class="text-sm text-slate-400 leading-relaxed">Stay silent, earn positive reviews, advance through the ranks. The system rewards compliance—and Carrington knows it. Every day she doesn't speak up is another day closer to the next rung on the ladder.</p>
+          </div>
+          <div class="bg-background-dark/60 rounded-xl p-5 border border-slate-800">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="material-symbols-outlined text-purple-400">gavel</span>
+              <h3 class="text-base font-bold text-white">Professional Ethics</h3>
+            </div>
+            <p class="text-sm text-slate-400 leading-relaxed">The AMA and AAPOR codes exist precisely for moments like this. History (New Coke) proves the cost of ignoring them. Ethics aren't just abstract ideals—they protect businesses, consumers, and the entire profession.</p>
+          </div>
+        </div>
+        <div class="mt-6 text-center">
+          <p class="text-base text-slate-300 italic">"The question isn't whether speaking up is risky—it's whether staying silent is riskier in the long run."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DISCUSSION QUESTIONS ===== -->
+    <section class="fade-in-section">
+      <div class="bg-surface-dark rounded-2xl border border-slate-800 p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-amber-400">forum</span>
+          <h2 class="text-xl font-bold text-white">Discussion Questions</h2>
+        </div>
+        <ol class="space-y-3 list-decimal list-inside text-slate-300 text-sm leading-relaxed">
+          <li>Is the career progression system at Trend Bridge inherently unethical, or is it a natural consequence of client-driven business models?</li>
+          <li>At what career stage would Carrington have enough power to push back effectively? Is "wait until you have influence" a valid strategy or an excuse?</li>
+          <li>How does the New Coke failure demonstrate that biased research ultimately harms the very clients it was designed to please?</li>
+          <li>If the AMA and AAPOR codes were legally enforceable (rather than voluntary), would the situation at Trend Bridge have played out differently?</li>
+          <li>Design an alternative career progression framework that rewards ethical conduct. What metrics would replace "client satisfaction"?</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <div class="flex items-center justify-between pt-4">
+      <a href="stakeholders.html" class="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm font-medium transition-colors">
+        <span class="material-symbols-outlined text-sm">arrow_back</span> Stakeholders
+      </a>
+      <a href="index.html" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-primary/25 transition-all active:scale-95 text-sm">
+        Back to Home <span class="material-symbols-outlined text-sm">home</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 py-8 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">balance</span>
+        <span class="text-sm font-semibold text-white">Ethics<span class="text-primary">Navigator</span></span>
+      </div>
+      <p class="text-xs text-slate-500 text-center">Based on the case study: Trend Bridge Market Research Inc. &middot; For educational purposes only</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/shared.js"></script>
+</body>
+</html>
